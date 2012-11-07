@@ -9,7 +9,7 @@
 
     <channel_type name="Na_CML" density="yes">
         
-        <status value="stable">
+        <status value="in_progress">
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
