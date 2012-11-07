@@ -139,6 +139,68 @@ part of NeuroML or any standardised XML specification. -->
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_RS_Fig1</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_RS_Fig1_v_1</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Na_CML:m</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>CG_RS_Fig1</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_1</string>
+     </void>
+     <void property="maxValue">
+      <float>1.0</float>
+     </void>
+     <void property="minValue">
+      <float>0.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>CG_RS_Fig1_v_2</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>Na_CML:h</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.ProjectProperties">
@@ -193,10 +255,13 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_1</string>
+   <string>Sim_4</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
+  </void>
+  <void property="temperature">
+   <float>36.0</float>
   </void>
   <void property="whatToRecord">
    <int>2</int>
@@ -257,6 +322,12 @@ part of NeuroML or any standardised XML specification. -->
      <void property="plots">
       <void method="add">
        <string>CG_RS_Fig1_v</string>
+      </void>
+      <void method="add">
+       <string>CG_RS_Fig1_v_1</string>
+      </void>
+      <void method="add">
+       <string>CG_RS_Fig1_v_2</string>
       </void>
      </void>
      <void property="simDuration">

@@ -29,11 +29,29 @@
 
             <biophysics units="Physiological Units">
 
+                <bio:mechanism name="Kd_CML" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="5.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="Km_CML" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.07">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
                 <bio:mechanism name="LeakConductance" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="e" value="-70.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                     <bio:parameter name="gmax" value="0.1">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="Na_CML" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -54,7 +72,21 @@
                     <bio:parameter value="-65.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
-                </bio:init_memb_potential></biophysics>
+                </bio:init_memb_potential>
+
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-90.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            </biophysics>
 
             <connectivity/>
 
