@@ -307,7 +307,11 @@ part of NeuroML or any standardised XML specification. -->
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/>
- <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/>
+ <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings">
+  <void property="mooseCompatMode">
+   <boolean>true</boolean>
+  </void>
+ </object>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
@@ -317,7 +321,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_13</string>
+   <string>Sim_20</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -335,7 +339,7 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
      <void property="amp">
       <void property="fixedNum">
-       <float>0.7</float>
+       <float>0.75</float>
       </void>
      </void>
      <void property="cellGroup">
@@ -343,12 +347,12 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="del">
       <void property="fixedNum">
-       <float>200.0</float>
+       <float>300.0</float>
       </void>
      </void>
      <void property="dur">
       <void property="fixedNum">
-       <float>500.0</float>
+       <float>400.0</float>
       </void>
       <void property="numberType">
        <int>11</int>

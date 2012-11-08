@@ -37,7 +37,7 @@
 
 
         <parameters>
-            <parameter name="VT" value ="-61.5"/>
+            <parameter name="VT" value ="-55"/>
         </parameters>
         
         <current_voltage_relation cond_law="ohmic" ion="na" default_erev="50" default_gmax="120"> 

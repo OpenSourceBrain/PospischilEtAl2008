@@ -69,13 +69,13 @@
                 </bio:spec_axial_resistance>
 
                 <bio:init_memb_potential>
-                    <bio:parameter value="-65.0">
+                    <bio:parameter value="-70.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:init_memb_potential>
 
                 <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-90.0">
+                    <bio:parameter name="e" value="-100.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>

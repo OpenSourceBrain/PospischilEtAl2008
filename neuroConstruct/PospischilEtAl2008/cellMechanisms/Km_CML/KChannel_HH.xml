@@ -37,10 +37,10 @@
         </meta:neuronDBref>
 
         <parameters>
-            <parameter name="tmax" value ="4000"/>
+            <parameter name="tmax" value ="1000"/>
         </parameters>
         
-        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="0.004" default_erev="-90">
+        <current_voltage_relation cond_law="ohmic" ion="k" default_gmax="0.004" default_erev="-100">
             
             <gate name="p" instances="1">
                 <closed_state id="p0"/>
