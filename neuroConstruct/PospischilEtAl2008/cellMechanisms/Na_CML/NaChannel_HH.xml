@@ -46,16 +46,16 @@
                 <closed_state id="m0"/>
                 <open_state id="m"/>
 
-                <transition name="alpha" from="m0" to="m" expr_form="generic" expr="-0.32 * ( (v - VT) - 13 ) / (exp(-1*( (v - VT) - 13 ) / 4) - 1)"/>
-                <transition name="beta" from="m" to="m0" expr_form="generic" expr="0.28 * ( (v - VT) - 40 ) / (exp(( (v - VT) - 40 ) / 5) - 1)"/>
+                <transition name="alpha" from="m0" to="m" expr_form="generic" expr="-0.32 * ( (v - VT) - 13 ) / ( (exp (-1*( (v - VT) - 13 ) / 4)) - 1)"/>
+                <transition name="beta" from="m" to="m0" expr_form="generic" expr="0.28 * ( (v - VT) - 40 ) / ((exp (( (v - VT) - 40 ) / 5)) - 1)"/>
             </gate>
             
             <gate name="h" instances="1">
                 <closed_state id="h0"/>
                 <open_state id="h"/>
 
-                <transition name="alpha" from="h0" to="h" expr_form="generic" expr="0.128 * exp(-1*( (v - VT) - 17 ) / 18)"/>
-                <transition name="beta" from="h" to="h0" expr_form="generic" expr="4 / ( 1 + exp(-1*( (v - VT) - 40 ) / 5))"/>
+                <transition name="alpha" from="h0" to="h" expr_form="generic" expr="0.128 * (exp (-1*( (v - VT) - 17 ) / 18))"/>
+                <transition name="beta" from="h" to="h0" expr_form="generic" expr="4 / ( 1 + (exp (-1*( (v - VT) - 40 ) / 5)))"/>
             </gate>
             
         </current_voltage_relation>

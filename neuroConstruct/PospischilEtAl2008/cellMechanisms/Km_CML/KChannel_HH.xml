@@ -51,7 +51,7 @@
                 <transition name="beta" from="n" to="n0" expr_form="exponential" rate="0.125" scale="-80" midpoint="-65"/>-->
 
                 
-                <time_course name="tau" from="p0" to="p" expr_form="generic" expr="tmax / ( (3.3 * exp( (v+35)/20)) + exp(-1 * (v+35) /20))" />
+                <time_course name="tau" from="p0" to="p" expr_form="generic" expr="tmax / ( (3.3 * (exp ((v+35)/20))) + (exp (-1 * (v+35) /20)))" />
                 <steady_state name="inf" from="p0" to="p" expr_form="generic" expr="1/(1+ (exp (-1 * (v+35)/10)))"/>
                     
             </gate>

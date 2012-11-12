@@ -46,12 +46,8 @@
                 <closed_state id="n0"/>
                 <open_state id="n"/>
 
-                <!--
-                <transition name="alpha" from="n0" to="n" expr_form="exp_linear" rate="0.1" scale="10" midpoint="-55"/>
-                <transition name="beta" from="n" to="n0" expr_form="exponential" rate="0.125" scale="-80" midpoint="-65"/>-->
-
-                <transition name="alpha" from="n0" to="n" expr_form="generic" expr="-0.032 * ( (v - VT) - 15 ) / (exp(-1*( (v - VT) - 15 ) / 5) - 1)"/>
-                <transition name="beta" from="n" to="n0" expr_form="generic" expr="0.5 * exp(-1*( (v - VT) - 10 ) / 40)"/>
+                <transition name="alpha" from="n0" to="n" expr_form="generic" expr="-0.032 * ( (v - VT) - 15 ) / ( (exp (-1*( (v - VT) - 15 ) / 5)) - 1)"/>
+                <transition name="beta" from="n" to="n0" expr_form="generic" expr="0.5 * (exp (-1*( (v - VT) - 10 ) / 40))"/>
                     
             </gate>
         </current_voltage_relation>
