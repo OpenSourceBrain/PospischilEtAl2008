@@ -1,3 +1,4 @@
+/neuroConstruct/generatedNeuroML2/runsim.sh
 *.pyc
 *i686
 *x86_64
@@ -9,3 +10,9 @@ generatedPSICS
 simulations
 *.bak
 *py.class
+
+/neuroConstruct/generatedNeuroML2/*.dat
+/neuroConstruct/generatedNeuroML2/*.mod
+/neuroConstruct/generatedNeuroML2/*.hoc
+/neuroConstruct/generatedNeuroML2/*.props
+/neuroConstruct/generatedNeuroML2/*nrn.py

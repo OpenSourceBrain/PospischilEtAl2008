@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_24" class="java.beans.XMLDecoder">
+<java version="1.7.0_51" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -9,11 +9,11 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo">
   <void property="projectDescription">
-   <string>Implementation in NeuroML of cell models from: Minimal Hodgkin–Huxley type models for different classes of cortical and thalamic neurons, Martin Pospischil, Maria Toledo-Rodriguez, Cyril Monier, Zuzanna Piwkowska, Thierry Bal, Yves Frégnac, Henry Markram and Alain Destexhe, Biol Cybern (2008) 99:427–441
+   <string>Implementation in NeuroML of cell models from: Minimal Hodgkin–Huxley type models for different classes of cortical and thalamic neurons, Martin Pospischil, Maria Toledo-Rodriguez, Cyril Monier, Zuzanna Piwkowska, Thierry Bal, Yves Frégnac, Henry Markram and Alain Destexhe, Biol Cybern (2008) 99:427–441 
 </string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.6.1</string>
+   <string>neuroConstruct v1.7.1</string>
   </void>
   <void property="projectName">
    <string>PospischilEtAl2008</string>
@@ -43,19 +43,31 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.RectangularBox">
       <void property="parameterList">
-       <void index="3">
-        <void property="value">
-         <float>1000.0</float>
+       <void id="InternalParameter0" index="3">
+        <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
+         <string>value</string>
+         <void method="set">
+          <object idref="InternalParameter0"/>
+          <float>1000.0</float>
+         </void>
         </void>
        </void>
-       <void index="4">
-        <void property="value">
-         <float>1000.0</float>
+       <void id="InternalParameter1" index="4">
+        <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
+         <string>value</string>
+         <void method="set">
+          <object idref="InternalParameter1"/>
+          <float>1000.0</float>
+         </void>
         </void>
        </void>
-       <void index="5">
-        <void property="value">
-         <float>1000.0</float>
+       <void id="InternalParameter2" index="5">
+        <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
+         <string>value</string>
+         <void method="set">
+          <object idref="InternalParameter2"/>
+          <float>1000.0</float>
+         </void>
         </void>
        </void>
       </void>
@@ -464,7 +476,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.01</float>
+   <float>0.005</float>
   </void>
   <void property="duration">
    <float>100.0</float>
@@ -499,12 +511,16 @@ part of NeuroML or any standardised XML specification. -->
        <float>200.0</float>
       </void>
      </void>
-     <void property="dur">
+     <void id="NumberGenerator0" property="dur">
+      <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
+       <string>numberType</string>
+       <void method="set">
+        <object idref="NumberGenerator0"/>
+        <int>11</int>
+       </void>
+      </void>
       <void property="fixedNum">
        <float>500.0</float>
-      </void>
-      <void property="numberType">
-       <int>11</int>
       </void>
      </void>
      <void property="reference">
@@ -527,12 +543,16 @@ part of NeuroML or any standardised XML specification. -->
        <float>300.0</float>
       </void>
      </void>
-     <void property="dur">
+     <void id="NumberGenerator1" property="dur">
+      <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
+       <string>numberType</string>
+       <void method="set">
+        <object idref="NumberGenerator1"/>
+        <int>11</int>
+       </void>
+      </void>
       <void property="fixedNum">
        <float>400.0</float>
-      </void>
-      <void property="numberType">
-       <int>11</int>
       </void>
      </void>
      <void property="reference">
@@ -555,12 +575,16 @@ part of NeuroML or any standardised XML specification. -->
        <float>500.0</float>
       </void>
      </void>
-     <void property="dur">
+     <void id="NumberGenerator2" property="dur">
+      <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
+       <string>numberType</string>
+       <void method="set">
+        <object idref="NumberGenerator2"/>
+        <int>11</int>
+       </void>
+      </void>
       <void property="fixedNum">
        <float>2000.0</float>
-      </void>
-      <void property="numberType">
-       <int>11</int>
       </void>
      </void>
      <void property="reference">
@@ -583,12 +607,16 @@ part of NeuroML or any standardised XML specification. -->
        <float>500.0</float>
       </void>
      </void>
-     <void property="dur">
+     <void id="NumberGenerator3" property="dur">
+      <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
+       <string>numberType</string>
+       <void method="set">
+        <object idref="NumberGenerator3"/>
+        <int>11</int>
+       </void>
+      </void>
       <void property="fixedNum">
        <float>2000.0</float>
-      </void>
-      <void property="numberType">
-       <int>11</int>
       </void>
      </void>
      <void property="reference">

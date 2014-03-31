@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://neuroml.svn.sourceforge.net/viewvc/neuroml/trunk/web/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
 
     <cells>
-        <cell name="RS_ModelDB">
+        <cell name="RS_Fig2A">
 
-            <meta:notes>RS cell as illustrated in example script from ModelDB</meta:notes>
+            <meta:notes>A single segment/compartment cell</meta:notes>
 
             <mml:segments>
 
                 <mml:segment id="0" name="Soma" cable="0">
-                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="96.0"/>
-                    <mml:distal x="0.0" y="0.0" z="0.0" diameter="96.0"/>
+                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="61.4"/>
+                    <mml:distal x="0.0" y="0.0" z="0.0" diameter="61.4"/>
                 </mml:segment>
 
                 
@@ -30,28 +30,40 @@
             <biophysics units="Physiological Units">
 
                 <bio:mechanism name="Kd_CML" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="5.0">
+                    <bio:parameter name="gmax" value="6.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="VT" value="-56.2">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="Km_CML" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.07">
+                    <bio:parameter name="gmax" value="0.075">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="tmax" value="608.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="LeakConductance" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="e" value="-70.0">
+                    <bio:parameter name="e" value="-70.3">
                         <bio:group>all</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="gmax" value="0.1">
+                    <bio:parameter name="gmax" value="0.0205">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="Na_CML" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="50.0">
+                    <bio:parameter name="gmax" value="56.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="VT" value="-56.2">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -75,7 +87,7 @@
                 </bio:init_memb_potential>
 
                 <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-100.0">
+                    <bio:parameter name="e" value="-90.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
