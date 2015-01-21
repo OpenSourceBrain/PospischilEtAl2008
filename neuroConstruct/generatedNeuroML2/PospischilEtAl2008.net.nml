@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta3.xsd" id="network_PospischilEtAl2008">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="network_PospischilEtAl2008">
 
     <notes>
 
-Network structure (NeuroML 2beta3) for project: PospischilEtAl2008 saved with neuroConstruct v1.7.1 on: 13:50:58, 31-Mar-14
+Network structure (NeuroML 2beta4) for project: PospischilEtAl2008 saved with neuroConstruct v1.7.1 on: 13:15:34, 10-Dec-14
 
 Cell Group: CG_RS_ModelDB contains 1 cells
 
@@ -26,6 +26,9 @@ Cell Group: CG_RS_ModelDB contains 1 cells
         
 
         <population id="CG_RS_ModelDB" component="RS_ModelDB" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.3203125 0.3828125 0.765625"/>
+            </annotation>
             <instance id="0">
                 <location x="361.80304" y="513.20953" z="932.99347"/>
             </instance>

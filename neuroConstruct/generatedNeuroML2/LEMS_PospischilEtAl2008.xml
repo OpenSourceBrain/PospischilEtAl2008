@@ -1,4 +1,4 @@
-<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.github.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
 
     <Target component="sim1" reportFile="simulator.props" timesFile="time.dat"/>
 
@@ -26,13 +26,13 @@
 
         <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
         is used to allow validation of this file according to the LEMS schema specified above...-->
-    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.05ms" target="network_PospischilEtAl2008">
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="2.5E-2ms" target="network_PospischilEtAl2008">
         
         <Display id="CG_RS_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_RS_ModelDB, VOLTAGE" xmin="-0.1" xmax="1.1" ymin="-0.104" ymax="0.064" timeScale="1s">
-            <Line id="VOLTAGE" timeScale="1s" quantity="CG_RS_ModelDB/0/RS_ModelDB/v" scale="1 V" color="#000000"/>
+            <Line id="v" timeScale="1s" quantity="CG_RS_ModelDB/0/RS_ModelDB/v" scale="1 V" color="#000000"/>
         </Display>
     
-        <OutputFile id="CG_RS_ModelDB_v_OF" fileName="CG_RS_ModelDB_0.dat">
+        <OutputFile id="CG_RS_ModelDB_v_0_0_OF" fileName="CG_RS_ModelDB_0.0.dat">
             <OutputColumn id="v" quantity="CG_RS_ModelDB/0/RS_ModelDB/v"/>
         </OutputFile>
     </Component>
