@@ -1,3 +1,5 @@
+/NeuroML2/*.dat
+/NeuroML2/simulator.props
 /.gitignore~
 /neuroConstruct/generatedNeuroML2/runsim.sh
 *.pyc
