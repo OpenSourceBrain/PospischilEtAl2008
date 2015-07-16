@@ -3,7 +3,7 @@
 
     <notes>ChannelML file containing a single Channel description</notes>
 
-    <ionChannel id="Na_CML" conductance="10pS" type="ionChannelHH" species="na">
+    <ionChannel id="Na_CML" conductance="0 pS" type="ionChannelHH" species="na">
 
         <notes>ChannelML file containing a single Channel description</notes>
                 

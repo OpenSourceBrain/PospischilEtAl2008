@@ -1,0 +1,71 @@
+<html><pre>
+Simulation of single-compartment Hodgkin-Huxley models for different
+classes of cortical neurons
+
+The models are described in:
+
+   Pospischil, M., Toledo-Rodriguez, M., Monier, C., Piwkowska, Z., 
+   Bal, T., Fregnac, Y., Markram, H. and Destexhe, A.
+   Minimal Hodgkin-Huxley type models for different classes of
+   cortical and thalamic neurons.
+   Biological Cybernetics 99: 427-441, 2008.
+
+Intrinsic currents: INa, IKd for action potentials, IM for
+spike-frequency adaptation, ICaL for high-threshold calcium current,
+ICaT for the low-threshold calcium current, intracellular calcium
+dynamics.  
+
+demo_PY_RS.oc : simplified model of the "regular-spiking" neuron
+demo_IN_FS.oc : simplified model of the "fast-spiking" interneuron
+demo_PY_IB.oc : simplified model of the "intrinsically bursting" neuron
+demo_PY_IBR.oc : simplified model of the "repetive bursting" neuron
+demo_PY_LTS.oc : simplified model of the "low-threshold spike" neurons
+
+Usage:
+------
+
+Simply auto-launch from ModelDB (after NEURON is installed) or
+download and extract the archive.  Then under
+
+linux/unix:
+-----------
+
+cd to the extracted folder.  Type at the shell prompt:
+
+nrnivmodl
+nrngui mosinit.hoc
+
+MAC OS X:
+---------
+
+Drag and drop the extracted folder onto the mknrndll icon.  Drag and
+drop the mosinit.hoc file onto the nrngui icon.
+
+mswin:
+------
+
+Run mknrndll and cd to the extracted folder. Select to make the
+nrnmech.dll.  Use windows explorer to view the contents of the
+expanded folder from the archive. Double click on the mosinit.hoc
+file.
+
+Once the simulation is started:
+-------------------------------
+
+Click on a button to select a cell.  Reposition the windows and press
+the Init & Run button.
+
+For example selecting Bursting Pyramidal Cell and then Init & Run
+should produce a figure like figure 5B from the paper:
+
+<img src="./fig5b.jpg" alt="fig 5B appears here">
+
+20111102 The file IL_gutnick.mod was updated to use derivimplicit in the
+solver.  See http://www.neuron.yale.edu/phpBB/viewtopic.php?f=28&t=592
+for details.
+
+20120216 the files IM_cortex.mod, IT_huguenard.mod, and
+cadecay_destexhe.mod had solver methods updated from euler to cnexp,
+cnexp, and derivimplicit respectively.  The IL_gutnick.mod was changed
+from derivimplicit to cnexp. See www.neuron.yale.edu phpBB link above.
+</pre></html>

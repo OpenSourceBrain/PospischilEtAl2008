@@ -1,0 +1,191 @@
+// Cell: FS_ModelDB
+/*
+{
+  "id" : "FS_ModelDB",
+  "sections" : [ {
+    "name" : "Soma",
+    "id" : "Soma",
+    "points3d" : [ "0.00000, 0.00000, 0.00000, 67.0000", "67.0000, 0.00000, 0.00000, 67.0000" ]
+  } ],
+  "groups" : [ {
+    "name" : "all",
+    "groups" : [ ],
+    "sections" : [ "Soma" ]
+  }, {
+    "name" : "soma_group",
+    "groups" : [ ],
+    "sections" : [ "Soma" ]
+  } ],
+  "specificCapacitance" : [ {
+    "group" : "all",
+    "value" : "1.0"
+  } ],
+  "initMembPotential" : [ {
+    "group" : "all",
+    "value" : "-70.0"
+  } ],
+  "resistivity" : [ {
+    "group" : "all",
+    "value" : "30.000002"
+  } ],
+  "channelDensity" : [ {
+    "id" : "LeakConductance_all",
+    "ionChannel" : "LeakConductance",
+    "ion" : "non_specific",
+    "group" : "all",
+    "condDens" : "1.4999999E-4",
+    "erev" : "-70.0"
+  }, {
+    "id" : "Na_CML_all",
+    "ionChannel" : "Na_CML",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "0.049999997",
+    "erev" : "50.0"
+  }, {
+    "id" : "Kd_CML_all",
+    "ionChannel" : "Kd_CML",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.01",
+    "erev" : "-100.0"
+  } ],
+  "species" : [ ]
+}
+*/
+
+load_file("subiter.hoc")
+
+begintemplate FS_ModelDB
+
+public init, topol, basic_shape, subsets, geom, memb
+public x, y, z, position
+
+
+//  Some methods for referencing the cells
+
+public toString, netInfo, set_initial_v, set_initial_ion_properties, synlist
+
+
+// Section: Soma, id: Soma, parent: $s.parent
+create Soma
+public Soma
+
+// Group: {name=all, groups=[], sections=[Soma]}
+objref all
+// Group: {name=soma_group, groups=[], sections=[Soma]}
+objref soma_group
+
+objref synlist
+
+proc init() {
+    topol()
+    geom_nseg()
+    subsets()
+    subsets_inhomogeneous()
+    biophys()
+    biophys_inhomogeneous()
+    synlist = new List()
+    x = y = z = 0
+    
+}
+
+proc set_initial_v() {
+    // Taken from the initMembPotential value
+    forsec all v = -70.0  // units: mV
+}
+
+
+proc set_initial_ion_properties() {
+    // From species
+}
+
+
+proc topol() {
+    basic_shape()
+
+}
+
+
+proc basic_shape() {
+
+    // Section: Soma, id: Soma, parent: $s.parent (entry count 0/100)
+    Soma { pt3dclear() }
+    Soma { pt3dadd( 0.00000, 0.00000, 0.00000, 67.0000 ) }
+    Soma { pt3dadd( 67.0000, 0.00000, 0.00000, 67.0000 ) }
+
+}
+
+
+proc subsets() { local i
+
+    // Group: {name=all, groups=[], sections=[Soma]}
+    all = new SectionList()
+    Soma all.append()
+
+    // Group: {name=soma_group, groups=[], sections=[Soma]}
+    soma_group = new SectionList()
+    Soma soma_group.append()
+
+}
+
+
+proc subsets_inhomogeneous() {
+}
+
+proc biophys() {
+
+    // Specific capacitance
+    forsec all cm = 1.0  // units: uF/cm2
+
+    // Specific axial resistance/resistivity
+    forsec all Ra = 30.000002  // units: ohm cm
+
+    // Channel densities
+    forsec all {
+        insert LeakConductance
+        gmax_LeakConductance = 1.4999999E-4  // units: S cm-2
+        e_LeakConductance = -70.0  // units: mV
+    }
+    forsec all {
+        insert Na_CML
+        gmax_Na_CML = 0.049999997  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert Kd_CML
+        gmax_Kd_CML = 0.01  // units: S cm-2
+        ek = -100.0  // units: mV
+    }
+
+    // Concentration models for species
+
+}
+
+func H() { // Heaviside function
+    if ($1>=0) return 1
+    if ($1==0) return 0.5
+    return 0
+}
+
+proc biophys_inhomogeneous() {
+}
+
+proc geom_nseg() {
+    // All sections not mentioned here have nseg = 1
+}
+
+
+proc position() { local i
+    forsec all {
+        for i = 0, n3d()-1 {
+            pt3dchange(i, $1+x3d(i), $2+y3d(i), $3+z3d(i), diam3d(i))
+        }
+    }
+    x = $1  y = $2  z = $3
+}
+
+
+endtemplate FS_ModelDB
+
+

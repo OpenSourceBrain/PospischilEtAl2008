@@ -1,0 +1,89 @@
+/*--------------------------------------------------------------
+	TEMPLATE FILE FOR REPETITIVE BURSTING CORTICAL PYRAMIDAL CELL
+	-------------------------------------------------------------
+
+	One compartment model and currents derived from:
+
+   Pospischil, M., Toledo-Rodriguez, M., Monier, C., Piwkowska, Z., 
+   Bal, T., Fregnac, Y., Markram, H. and Destexhe, A.
+   Minimal Hodgkin-Huxley type models for different classes of
+   cortical and thalamic neurons.
+   Biological Cybernetics 99: 427-441, 2008.
+
+	- one compartment model
+	- passive
+	- HH Traub
+	- IM
+	- L-type calcium current
+
+
+	Alain Destexhe, CNRS, 2008
+
+--------------------------------------------------------------*/
+
+
+print " "
+print " << defining template for one-compartment sPYb cell >> "
+print " "
+
+
+begintemplate sPYbr		// create a new template object
+public soma
+
+create soma[1]
+
+proc init() { local v_potassium, v_sodium
+
+  v_potassium = -100		// potassium reversal potential 
+  v_sodium = 50			// sodium reversal potential 
+
+  soma {
+	Ra = 100		// geometry 
+	nseg = 1
+	diam = 96
+	L = 96			// so that area is about 29000 um2
+	cm = 1
+
+	insert pas		// leak current 
+	e_pas = -70
+	g_pas = 1e-5		// idem TC cell
+
+	// conversion with McC units: 
+	// g(S/cm2) = g(nS)*1e-9/29000e-8
+	//	    = g(nS) * 3.45e-6
+
+	insert hh2		// Hodgin-Huxley INa and IK 
+	ek = v_potassium
+	ena = v_sodium
+	vtraub_hh2 = -55	// Resting Vm, BJ was -55
+	gnabar_hh2 = 0.05	// McCormick=15 muS, thal was 0.09
+	gkbar_hh2 = 0.005	// spike duration of pyr cells
+
+	insert im		// M current 
+	taumax_im = 1000
+	gkbar_im = 3e-5		// specific to LTS pyr cell
+
+	insert cad		// calcium decay
+	depth_cad = 1		// McCormick= 0.1 um
+	taur_cad = 5		// McCormick=1 ms !!!
+	cainf_cad = 2.4e-4	// McCormick=0
+	kt_cad = 0		// no pump
+
+	insert ical		// IL current (Reuveni et al. model, Nernst)
+	cai = 2.4e-4 
+	cao = 2 
+	eca = 120 
+	gcabar_ical = 1e-4
+
+
+  }
+
+  print " "
+  print "<< sPYr: passive, INa, IK, Ca++, IT inserted >>"
+  print " "
+
+}
+endtemplate sPYbr
+
+
+
