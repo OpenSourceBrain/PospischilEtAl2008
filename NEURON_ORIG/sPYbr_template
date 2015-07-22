@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------
-	TEMPLATE FILE FOR BURSTING CORTICAL PYRAMIDAL CELL
-	--------------------------------------------------
+	TEMPLATE FILE FOR REPETITIVE BURSTING CORTICAL PYRAMIDAL CELL
+	-------------------------------------------------------------
 
 	One compartment model and currents derived from:
 
@@ -27,7 +27,7 @@ print " << defining template for one-compartment sPYb cell >> "
 print " "
 
 
-begintemplate sPYb		// create a new template object
+begintemplate sPYbr		// create a new template object
 public soma
 
 create soma[1]
@@ -83,7 +83,7 @@ proc init() { local v_potassium, v_sodium
   print " "
 
 }
-endtemplate sPYb
+endtemplate sPYbr
 
 
 

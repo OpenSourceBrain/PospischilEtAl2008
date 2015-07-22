@@ -15,22 +15,25 @@
     <Include file="../../channels/IM.channel.nml"/>
     <Include file="../../channels/LeakConductance.channel.nml"/>
     <Include file="../../channels/Na.channel.nml"/>
+    <Include file="../../channels/CalciumPool.nml"/>
+    <Include file="../../channels/IL.channel.nml"/>
     
     <!--   Cell files-->
-    <Include file="RS.cell.nml"/>
+    <Include file="IBR.cell.nml"/>
     <!--   Network file-->
-    <Include file="RS.net.nml"/>
+    <Include file="IBR.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
-        
-        <Display id="CG_RS_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_RS_ModelDB, VOLTAGE" xmin="-100" xmax="1100" ymin="-100" ymax="70" timeScale="1ms">
-            <Line id="v" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/v" scale="1 mV" color="#000000"/>
+    <Component type="Simulation" id="sim1" length="3000.0ms" step="0.005ms" target="network_PospischilEtAl2008">
+
+        <Display id="CG_IBR_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_IBR_ModelDB, VOLTAGE" xmin="450" xmax="700" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v" scale="1 mV" color="#000000"/>
         </Display>
-        
-        <OutputFile id="CG_RS_ModelDB_v_0_0_OF" fileName="RS.dat">
-            <OutputColumn id="v" quantity="CG_RS_ModelDB/0/RS_ModelDB/v"/>
+
+        <OutputFile id="CG_IBR_ModelDB_v_0_0_OF" fileName="IBR.dat">
+            <OutputColumn id="v" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v"/>
         </OutputFile>
+        
     </Component>
     
     

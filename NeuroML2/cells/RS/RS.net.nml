@@ -12,10 +12,10 @@ Cell Group: CG_RS_ModelDB contains 1 cells
     </notes>
 
 
-    <include href="../../channels/Kd_CML.channel.nml"/>
-    <include href="../../channels/Km_CML.channel.nml"/>
+    <include href="../../channels/Kd.channel.nml"/>
+    <include href="../../channels/IM.channel.nml"/>
     <include href="../../channels/LeakConductance.channel.nml"/>
-    <include href="../../channels/Na_CML.channel.nml"/>
+    <include href="../../channels/Na.channel.nml"/>
     <include href="RS_ModelDB.cell.nml"/>
 
     <pulseGenerator id="Input_1" delay="0.3s" duration="0.4s" amplitude="7.5E-10A"/>

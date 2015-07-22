@@ -73,16 +73,17 @@ INITIAL {
 :  The Q10 value is assumed to be 2.3
 :
     tadj = 2.3 ^ ((celsius-36)/10)
-    tau_peak = taumax: / tadj
-    evaluate_fct(v)
+    tau_peak = taumax / tadj
+    evaluate_fct(v) : JB - moved here from first line
+                    : as tau_peak is used in evaluate_fct
 
-    m = m_inf
+    m = m_inf : JB - this was 0
 }
 
 PROCEDURE evaluate_fct(v(mV)) {
 
-	m_inf = 1 / ( 1 + exp(-(v+35)/10) )
-	tau_m = tau_peak / ( 3.3 * exp((v+35)/20) + exp(-(v+35)/20) )
+	m_inf = 1 / ( 1 + exptable(-(v+35)/10) )
+	tau_m = tau_peak / ( 3.3 * exptable((v+35)/20) + exptable(-(v+35)/20) )
 }
 UNITSON
 

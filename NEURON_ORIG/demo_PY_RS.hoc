@@ -169,7 +169,7 @@ dt = 0.1			// must be submultiple of Dt
 tstart = trans
 tstop = trans + npoints * Dt
 runStopAt = tstop
-steps_per_ms = 10
+steps_per_ms = 5
 celsius = 36
 v_init = -70
 
