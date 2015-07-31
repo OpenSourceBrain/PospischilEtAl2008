@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="RS_ModelDB">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="IM_ModelDB">
 
     <include href="../../channels/Kd/Kd.channel.nml"/>
 
@@ -9,11 +9,11 @@
 
     <include href="../../channels/Na/Na.channel.nml"/>
 
-    <cell id="RS_ModelDB">
+    <cell id="IM_ModelDB">
 
-        <notes>RS cell as illustrated in example script from ModelDB</notes>
+        <notes>IM cell as illustrated in example script from ModelDB</notes>
 
-        <morphology id="morphology_RS_ModelDB">
+        <morphology id="morphology_IM_ModelDB">
 
             <segment id="0" name="Soma">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="96.0"/>
@@ -45,12 +45,6 @@
         <biophysicalProperties id="biophys">
 
             <membraneProperties>
-                
-                <channelDensity condDensity="0.1 mS_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-70.0 mV" ion="non_specific"/>
-                
-                <channelDensity condDensity="50.0 mS_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>
-                
-                <channelDensity condDensity="5.0 mS_per_cm2" id="Kd_all" ionChannel="Kd" ion="k" erev="-100.0 mV"/>
                 
                 <channelDensity condDensity="0.07 mS_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>
 

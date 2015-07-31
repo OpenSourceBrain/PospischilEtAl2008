@@ -9,32 +9,54 @@ experiments:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: IBR.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
           method: threshold
-          threshold: -56
-        tolerance: 0
+          threshold: -60
+        tolerance: 6.75e-5
   two:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: IBR.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0
+        tolerance: 6.75e-5
   three:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: IBR.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
           method: threshold
-          threshold: 151
-        tolerance: 0
+          threshold: 150
+        tolerance: 6.75e-5
+  four:
+    observables:
+      spike times:
+        file: 
+          path: IBR.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 300
+        tolerance: 6.75e-5
+  five:
+    observables:
+      spike times:
+        file: 
+          path: IBR.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 700
+        tolerance: 6.75e-5
