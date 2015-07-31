@@ -1,12 +1,12 @@
-/NeuroML2/LEMS_Test_*.xml
-/NeuroML2/*.dat
-/NeuroML2/simulator.props
-/NeuroML2/*.mod
-/NeuroML2/*.hoc
-/NeuroML2/*.props
-/NeuroML2/*nrn.py
-/NeuroML2/*geppetto.*
-/NeuroML2/*.js
+LEMS_Test_*.xml
+*.dat
+simulator.props
+*.mod
+*.hoc
+*.props
+*nrn.py
+*geppetto.*
+*.js
 
 /neuroConstruct/generatedNeuroML2
 
