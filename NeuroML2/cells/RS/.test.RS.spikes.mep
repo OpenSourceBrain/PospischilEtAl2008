@@ -1,0 +1,6 @@
+system: Expected spike times for RS cell
+
+experiments:
+  spikes:
+    expected:
+      spike times: [320.555, 348.523, 387.945, 456.691, 592.106]

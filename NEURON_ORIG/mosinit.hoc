@@ -1,0 +1,3 @@
+load_file("nrngui.hoc")
+load_file("rundemo.hoc")
+print "Select a cell then press Init & Run button"

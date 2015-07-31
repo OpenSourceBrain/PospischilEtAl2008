@@ -3,7 +3,7 @@
 
     <notes>ChannelML file containing a single Channel description</notes>
 
-    <ionChannel id="LeakConductance" conductance="10pS" type="ionChannelPassive">
+    <ionChannel id="LeakConductance" conductance="0 pS" type="ionChannelPassive">
 
         <notes>ChannelML file containing a single Channel description</notes>
                             
