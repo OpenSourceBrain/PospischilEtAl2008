@@ -1,0 +1,12 @@
+system: Expected times of voltages for IT channel
+
+experiments:
+  one:
+    expected:
+      spike times: [400.58]
+  two:
+    expected:
+      spike times: [506.12]
+  three:
+    expected:
+      spike times: [797.58]

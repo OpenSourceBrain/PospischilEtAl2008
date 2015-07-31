@@ -3,7 +3,7 @@
     
     <cell id="LTS_ModelDB">
         
-        <notes>LTS cell as illustrated in example script from ModelDB</notes>
+        <notes>Cell with IT channel only, with static 120mV Ca reversal potential</notes>
         
         <morphology id="morphology_LTS_ModelDB">
             

@@ -19,9 +19,9 @@
     <Include file="../../channels/IT/IT.channel.nml"/>
     
     <!--   Cell files-->
-    <Include file="LTS.cell.nml"/>
+    <Include file="IT.nernstCa.test.cell.nml"/>
     <!--   Network file-->
-    <Include file="LTS.net.nml"/>
+    <Include file="IT.test.net.nml"/>
     
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">

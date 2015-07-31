@@ -19,19 +19,19 @@
     <Include file="../../channels/IT/IT.channel.nml"/>
     
     <!--   Cell files-->
-    <Include file="LTS.cell.nml"/>
+    <Include file="Ca.test.cell.nml"/>
     <!--   Network file-->
-    <Include file="LTS.net.nml"/>
+    <Include file="Ca.test.net.nml"/>
     
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
 
-        <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
-            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>
+        <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="0.2" ymax="0.3" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/caConc" scale="1 mV" color="#000000"/>
         </Display>
 
         <OutputFile id="CG_LTS_ModelDB_v_0_0_OF" fileName="LTS.dat">
-            <OutputColumn id="v" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v"/>
+            <OutputColumn id="v" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/caConc"/>
         </OutputFile>
         
     </Component>

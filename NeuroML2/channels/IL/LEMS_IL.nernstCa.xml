@@ -16,12 +16,12 @@
     <Include file="../../channels/LeakConductance.channel.nml"/>
     <Include file="../../channels/Na.channel.nml"/>
     <Include file="../../channels/Ca/Ca.nml"/>
-    <Include file="../../channels/IT/IT.channel.nml"/>
+    <Include file="../../channels/IT/IL.channel.nml"/>
     
     <!--   Cell files-->
-    <Include file="LTS.cell.nml"/>
+    <Include file="IL.nernstCa.test.cell.nml"/>
     <!--   Network file-->
-    <Include file="LTS.net.nml"/>
+    <Include file="IL.test.net.nml"/>
     
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">

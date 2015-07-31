@@ -15,8 +15,8 @@
     <Include file="../../channels/IM.channel.nml"/>
     <Include file="../../channels/LeakConductance.channel.nml"/>
     <Include file="../../channels/Na.channel.nml"/>
-    <Include file="../../channels/CalciumPool.nml"/>
-    <Include file="../../channels/IL.channel.nml"/>
+    <Include file="../../channels/Ca/Ca.nml"/>
+    <Include file="../../channels/IL/IL.channel.nml"/>
     
     <!--   Cell files-->
     <Include file="IB.cell.nml"/>
