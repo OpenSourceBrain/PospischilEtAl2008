@@ -1,0 +1,40 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation 
+# Still in development, subject to change without notice!!
+
+target: "LEMS_Leak.xml"
+engine: jNeuroML
+mep: .test.Leak.mep
+experiments:
+  one:
+    observables:
+      spike times:
+        file: 
+          path: LeakChannel.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -45
+        tolerance: 0.00012
+  two:
+    observables:
+      spike times:
+        file: 
+          path: LeakChannel.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -55
+        tolerance: 0.00012
+  three:
+    observables:
+      spike times:
+        file: 
+          path: LeakChannel.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -65
+        tolerance: 0.00012

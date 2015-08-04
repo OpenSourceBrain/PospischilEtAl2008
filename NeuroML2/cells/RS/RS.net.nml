@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="network_PospischilEtAl2008">
 
-    <notes>
+    <notes></notes>
 
-Network structure (NeuroML 2beta4) for project: PospischilEtAl2008 saved with neuroConstruct v1.7.1 on: 13:15:34, 10-Dec-14
-
-Cell Group: CG_RS_ModelDB contains 1 cells
-
-
-
-    </notes>
-
-
-    <include href="../../channels/Kd.channel.nml"/>
-    <include href="../../channels/IM.channel.nml"/>
-    <include href="../../channels/LeakConductance.channel.nml"/>
-    <include href="../../channels/Na.channel.nml"/>
+    <include href="../../channels/Kd/Kd.channel.nml"/>
+    <include href="../../channels/IM/IM.channel.nml"/>
+    <include href="../../channels/Leak/Leak.channel.nml"/>
+    <include href="../../channels/Na/Na.channel.nml"/>
     <include href="RS_ModelDB.cell.nml"/>
 
     <pulseGenerator id="Input_1" delay="0.3s" duration="0.4s" amplitude="7.5E-10A"/>
 
     
     <network id="network_PospischilEtAl2008" type="networkWithTemperature" temperature="36.0 degC">
-
-        
 
         <population id="CG_RS_ModelDB" component="RS_ModelDB" type="populationList" size="1">
            <annotation>
@@ -33,20 +22,11 @@ Cell Group: CG_RS_ModelDB contains 1 cells
                 <location x="361.80304" y="513.20953" z="932.99347"/>
             </instance>
         </population>
-
-
-
-            <!--There are no synaptic connections present in the network-->
-
-
+        
         <inputList id="Input_1" component="Input_1" population="CG_RS_ModelDB">
             <input id="0" target="../CG_RS_ModelDB/0/RS_ModelDB" destination="synapses"/>
         </inputList>
-
-
-
-
-
+        
     </network>
 
 </neuroml>
