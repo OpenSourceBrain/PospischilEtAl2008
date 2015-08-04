@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="">
     
-    <!--    <decayingPoolConcentrationModel id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" shellThickness="-6155.588 um"/>-->
+    <decayingPoolConcentrationModelPosp id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" depth="1 um"/>
     
-    <!--    <decayingPoolConcentrationModel id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" shellThickness="4.16 um"/>-->
-    
-    <decayingPoolConcentrationModel id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" shellThickness="1 um"/>
-    
-<!--    <decayingPoolConcentrationModelPosp id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" depth="1 um"/>-->
-
     <Dimension name="substancePerVolumeTime" l="-3" t="-1" n="1" />
     
     <ComponentType name="decayingPoolConcentrationModelPosp"
@@ -19,32 +13,30 @@
         <Parameter name="decayConstant" dimension="time"/>
         <Parameter name="depth" dimension="length"/>
         
-        <Constant name="Faraday" dimension="charge_per_mole" value="96485.3C_per_mol"/>
+        <Constant name="FARADAY" dimension="charge_per_mole" value="96485.3 C_per_mol"/>
         <Constant name="AREA_SCALE" dimension="area" value="1cm2"/>
         <Constant name="LENGTH_SCALE" dimension="length" value="1m"/>
         
         <Requirement name="iCa" dimension="current"/>
         <Requirement name="surfaceArea" dimension="area"/>
         
+        <Exposure name="iDensityCa" dimension="currentDensity" />
+
         <Text name="ion"/>
         
         <Dynamics>
             
+            <DerivedVariable name="iDensityCa" exposure="iDensityCa" dimension="currentDensity" value="-iCa/surfaceArea" />
+
             <StateVariable name="concentration" exposure="concentration" dimension="concentration"/>
             <StateVariable name="extConcentration" exposure="extConcentration" dimension="concentration"/>
-
-<!--            <TimeDerivative variable="concentration" value="- 0*(iCa/AREA_SCALE) / (2 * Faraday * depth) +  0*(( restingConc - concentration) / decayConstant)"/>-->
-
-            <TimeDerivative variable="concentration" value="0"/>
+            
+            <TimeDerivative variable="concentration" value="- iDensityCa / (2 * FARADAY * depth) + (restingConc - concentration) / decayConstant"/>
             
             <OnStart>
                 <StateAssignment variable="concentration" value="initialConcentration"/>
                 <StateAssignment variable="extConcentration" value="initialExtConcentration"/>
             </OnStart>
-            
-            <OnCondition test="concentration .lt. 0">
-                <StateAssignment variable="concentration" value="0"/>
-            </OnCondition>
             
         </Dynamics>
         

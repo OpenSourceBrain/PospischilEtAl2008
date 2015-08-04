@@ -30,9 +30,8 @@
             </rdf:RDF>
         </annotation>
 
-        <gate id="s" type="gateHHtauInf" instances="2">
+        <gate id="s" type="IT_s_gate" instances="2">
             <steadyState type="IT_s_inf_inf"/>
-            <timeCourse type="IT_s_tau_tau"/>
         </gate>
 
         <gate id="u" type="gateHHtauInf" instances="1">
@@ -67,12 +66,17 @@
         
     </ComponentType>
     
-    <ComponentType name="IT_s_tau_tau" extends="baseVoltageDepTime">
+    <ComponentType name="IT_s_gate" extends="gateHHtauInf">
         
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Exposure name="inf" dimension="none" />
         
         <Dynamics>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="TIME_SCALE"/>
+            <DerivedVariable name="inf" dimension="none" exposure="inf" select="steadyState/x" />
+            <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="inf^instances" />
+            
+            <DerivedVariable name="q" exposure="q" dimension="none" value="0" />
+            <DerivedVariable name="tau" exposure="tau" dimension="none" value="0" />
+            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="0" />
         </Dynamics>
         
     </ComponentType>

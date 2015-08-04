@@ -1,0 +1,40 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation 
+# Still in development, subject to change without notice!!
+
+target: "LEMS_IM.xml"
+engine: jNeuroML_NEURON
+mep: .test.IM.spikes.mep
+experiments:
+  one:
+    observables:
+      spike times:
+        file: 
+          path: IM.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -80
+        tolerance: 0
+  two:
+    observables:
+      spike times:
+        file: 
+          path: IM.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -35
+        tolerance: 0
+  three:
+    observables:
+      spike times:
+        file: 
+          path: IM.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0

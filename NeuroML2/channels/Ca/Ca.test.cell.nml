@@ -3,7 +3,7 @@
     
     <cell id="LTS_ModelDB">
         
-        <notes>LTS cell as illustrated in example script from ModelDB</notes>
+        <notes>Cell with Ca pool and IT channel, with static 120mV Ca reversal potential. For testing Ca pool.</notes>
         
         <morphology id="morphology_LTS_ModelDB">
             
@@ -53,7 +53,7 @@
             
             <intracellularProperties>
                 
-<!--                <species id="ca" ion="ca" concentrationModel="CaPoolModel" initialConcentration="2.4e-4 mM" initialExtConcentration="2.0 mM" />-->
+                <species id="ca" ion="ca" concentrationModel="CaPoolModel" initialConcentration="2.4e-4 mM" initialExtConcentration="2.0 mM" />
 
                 <resistivity value="100 ohm_cm"/>
                 

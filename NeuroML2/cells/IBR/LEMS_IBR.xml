@@ -11,12 +11,12 @@
     <Include file="Simulation.xml"/>
     
     <!--   Channel/synapse files-->
-    <Include file="../../channels/Kd.channel.nml"/>
-    <Include file="../../channels/IM.channel.nml"/>
-    <Include file="../../channels/LeakConductance.channel.nml"/>
-    <Include file="../../channels/Na.channel.nml"/>
-    <Include file="../../channels/CalciumPool.nml"/>
-    <Include file="../../channels/IL.channel.nml"/>
+    <Include file="../../channels/Kd/Kd.channel.nml"/>
+    <Include file="../../channels/IM/IM.channel.nml"/>
+    <Include file="../../channels/Leak/Leak.channel.nml"/>
+    <Include file="../../channels/Na/Na.channel.nml"/>
+    <Include file="../../channels/Ca/Ca.nml"/>
+    <Include file="../../channels/IL/IL.channel.nml"/>
     
     <!--   Cell files-->
     <Include file="IBR.cell.nml"/>

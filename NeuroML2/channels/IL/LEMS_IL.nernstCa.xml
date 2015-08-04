@@ -16,22 +16,22 @@
     <Include file="../../channels/Leak/Leak.channel.nml"/>
     <Include file="../../channels/Na/Na.channel.nml"/>
     <Include file="../../channels/Ca/Ca.nml"/>
-    <Include file="../../channels/IT/IT.channel.nml"/>
+    <Include file="../../channels/IL/IL.channel.nml"/>
     
     <!--   Cell files-->
-    <Include file="LTS.cell.nml"/>
+    <Include file="IL.nernstCa.test.cell.nml"/>
     <!--   Network file-->
-    <Include file="LTS.net.nml"/>
+    <Include file="IL.test.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
+    <Component type="Simulation" id="sim1" length="3000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
 
-        <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
-            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>
+        <Display id="CG_IBR_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_IBR_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v" scale="1 mV" color="#000000"/>
         </Display>
 
-        <OutputFile id="CG_LTS_ModelDB_v_0_0_OF" fileName="LTS.dat">
-            <OutputColumn id="v" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v"/>
+        <OutputFile id="CG_IBR_ModelDB_v_0_0_OF" fileName="IBR.dat">
+            <OutputColumn id="v" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v"/>
         </OutputFile>
         
     </Component>
