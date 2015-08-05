@@ -48,9 +48,10 @@ PARAMETER {
 	cao	= 2	(mM)
 }
 
+: JB - adding m to be consistent with h
 STATE {
 	h
-    m : JB - adding m to be consistent with h
+    m 
 }
 
 ASSIGNED {

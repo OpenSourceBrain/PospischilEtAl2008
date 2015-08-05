@@ -1,17 +1,24 @@
+# This script will compare plots of steady state/time course (inf/tau) for activation variables (m, h, etc)
+# for the channels in mod files vs NeuroML2 files. 
+
+# See ../NeuroML2/channels/analyse_chans.sh also and analyse.sh
+
 
 import matplotlib.pyplot as pylab
 import os.path
 
 
-chans = ['IM']
+chans = [ ['IM', 'im', ['p'], ['m']],
+          ['IT', 'it', ['s','u'], ['m','h']] ,
+          ['IL', 'ical', ['q','r'], ['m','h']],
+          ['Na', 'hh2', ['m', 'h'], ['m', 'h']], 
+          ['Kd', 'hh2', ['n'], ['n']] ]
 
-problematic = []
 
-gates = ['m', 'h', 'p']
 
-for channel_id in chans:
+for chan in chans:
     
-
+    channel_id = chan[0]
     vramp_lems_file  = '../NeuroML2/channels/%s.rampV.lems.dat'%(channel_id)
 
     ts = []
@@ -27,7 +34,7 @@ for channel_id in chans:
     pylab.ylabel('Time Course - tau (ms)')
     pylab.grid('on')
 
-    for gate in gates:
+    for gate in chan[2]:
         
         tau_lems_file  = '../NeuroML2/channels/%s.%s.tau.lems.dat'%(channel_id, gate)
         
@@ -39,7 +46,9 @@ for channel_id in chans:
 
             pylab.plot(volts, taus, linestyle='-', linewidth=2, label="LEMS %s %s tau"%(channel_id, gate))
 
-        tau_mod_file  = '%s.%s.tau.dat'%(channel_id.lower(), gate)
+    for gate in chan[3]:
+        
+        tau_mod_file  = '%s.%s.tau.dat'%(chan[1], gate)
         
         if os.path.isfile(tau_mod_file):
             vs = []
@@ -61,7 +70,7 @@ for channel_id in chans:
     pylab.ylabel('Steady state (inf)')
     pylab.grid('on')
 
-    for gate in gates:
+    for gate in chan[2]:
         
         inf_lems_file  = '../NeuroML2/channels/%s.%s.inf.lems.dat'%(channel_id, gate)
         
@@ -72,7 +81,9 @@ for channel_id in chans:
 
             pylab.plot(volts, infs, linestyle='-', linewidth=2, label="LEMS %s %s inf"%(channel_id, gate))
             
-        inf_mod_file  = '%s.%s.inf.dat'%(channel_id.lower(), gate)
+    for gate in chan[3]:
+        
+        inf_mod_file  = '%s.%s.inf.dat'%(chan[1], gate)
         
         if os.path.isfile(inf_mod_file):
         

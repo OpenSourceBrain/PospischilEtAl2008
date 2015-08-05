@@ -10,25 +10,27 @@
 
 ####################   IT_huguenard.mod    ####################
 
-53d52
-<     m : JB - adding m to be consistent with h
-69c68
+51d50
+< : JB - adding m to be consistent with h
+54d52
+<     m 
+70c68
 <     ica = gcabar * h * m * m * (v-carev) : JB - m was m_inf
 ---
 > 	ica = gcabar * m_inf * m_inf * h * (v-carev)
-73d71
+74d71
 < 
-77d74
+78d74
 <     m' = (m_inf - m) / tau_m  : JB - added m' to be consistent with h'
-82a80
+83a80
 > 	h = 0
-89,93d86
+90,94d86
 < 
 <     evaluate_fct(v) : JB - added to compute h/m_inf values
 < 
 <     h = h_inf : JB - WAS 0
 <     m = m_inf : JB - added and made consistent with h
-112,113d104
+113,114d104
 < 
 <     tau_m = 1.0 : JB - made tau_m explicit
 
@@ -61,6 +63,10 @@
 
 ####################   HH_traub.mod    ####################
 
+43c43
+< 	vtraub  = -55   (mV)   : PG changed this from -63 to -55, as this is value for vtraub is used in all ModelDB examples
+---
+> 	vtraub  = -63   (mV)
 93,101c93,95
 < 
 <     tadj = 3.0 ^ ((celsius-36)/ 10 ) : JB - was the last line, moved
