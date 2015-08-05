@@ -1,5 +1,7 @@
+/NeuroML2/cells/RS/RS.datnrn
 LEMS_Test_*.xml
 *.dat
+*.dat0*
 simulator.props
 *.mod
 *.hoc
