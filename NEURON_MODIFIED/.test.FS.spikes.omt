@@ -2,7 +2,7 @@
 
 target: "test_FS_ModelDB.hoc"
 engine: NEURON
-mep: ../NeuroML2/cells/FS/.test.FS.spikes.mep
+mep: .test.FS.spikes.mep
 experiments:
   spikes:
     observables:

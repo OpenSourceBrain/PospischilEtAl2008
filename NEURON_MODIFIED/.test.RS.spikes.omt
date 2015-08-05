@@ -3,7 +3,7 @@
 
 target: "test_RS_ModelDB.hoc"
 engine: NEURON
-mep: ../NeuroML2/cells/RS/.test.RS.spikes.mep
+mep: .test.RS.spikes.mep
 experiments:
   spikes:
     observables:

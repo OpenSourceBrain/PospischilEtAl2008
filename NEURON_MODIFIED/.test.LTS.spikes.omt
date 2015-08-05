@@ -2,7 +2,7 @@
 
 target: "test_LTS_ModelDB.hoc"
 engine: NEURON
-mep: ../NeuroML2/cells/LTS/.test.LTS.spikes.mep
+mep: .test.LTS.spikes.mep
 experiments:
   spikes:
     observables:

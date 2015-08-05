@@ -15,8 +15,8 @@ def parse_arguments():
                         help='Show no plots, just save results', 
                         default=False)
                         
-    parser.add_argument('-nogui', action='store_true',
-                        help='Show no plots, just save results', 
+    parser.add_argument('-showca', action='store_true',
+                        help='Show plot of ca', 
                         default=False)
                         
     parser.add_argument('-duration', 
@@ -101,12 +101,13 @@ def parse_arguments():
                         
 
 def run_cell(cell, 
-             nogui, 
-             duration, 
-             dt, 
-             idelay, 
-             iduration, 
-             iamp,
+             nogui = False, 
+             showca = False, 
+             duration = 1000, 
+             dt = 0.01, 
+             idelay = 300, 
+             iduration = 400, 
+             iamp = 0.75,
              gcabar_ical=None,
              gcabar_it=None,
              gkbar_im=None,
@@ -195,6 +196,12 @@ def run_cell(cell,
     h(' v_vect.record(&myCell.soma[0].v(0.5)) ')
     h.v_vect.resize((h.tstop * h.steps_per_ms) + 1)
     
+    if showca:
+        h(' objectvar ca_vect ')
+        h(' { ca_vect = new Vector() } ')
+        h(' ca_vect.record(&myCell.soma[0].cai(0.5)) ')
+        h.ca_vect.resize((h.tstop * h.steps_per_ms) + 1)
+    
     print("Running a simulation of %sms (dt = %sms)" % (h.tstop, h.dt))
 
     h.run()
@@ -234,7 +241,8 @@ def main(args=None):
         
 
     run_cell(args.cell, 
-             args.nogui, 
+             args.nogui,
+             args.showca, 
              args.duration, 
              args.dt, 
              args.idelay, 

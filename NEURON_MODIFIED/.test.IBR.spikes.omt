@@ -2,7 +2,7 @@
 
 target: "test_IBR_ModelDB.hoc"
 engine: NEURON
-mep: ../NeuroML2/cells/IBR/.test.IBR.spikes.neuron.mep
+mep: .test.IBR.spikes.mep
 experiments:
   spikes:
     observables:

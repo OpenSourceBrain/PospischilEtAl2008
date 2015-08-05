@@ -3,7 +3,7 @@
 
 target: "LEMS_FS.xml"
 engine: jNeuroML_NEURON
-mep: .test.FS.spikes.mep
+mep: ../../../NEURON_MODIFIED/.test.FS.spikes.mep
 experiments:
   spikes:
     observables:
