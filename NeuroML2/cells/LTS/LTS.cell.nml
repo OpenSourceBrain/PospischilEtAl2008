@@ -33,13 +33,13 @@
             
             <membraneProperties>
 
-<!--                <channelDensity condDensity="1e-5 S_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-85.0 mV" ion="non_specific"/>-->
-<!---->
-<!--                <channelDensity condDensity="0.05 S_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>-->
-<!---->
-<!--                <channelDensity condDensity="0.005 S_per_cm2" id="Kd_all" ionChannel="Kd" ion="k" erev="-100.0 mV"/>-->
-<!---->
-<!--                <channelDensity condDensity="3e-5 S_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>-->
+               <channelDensity condDensity="1e-5 S_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-85.0 mV" ion="non_specific"/>
+
+                <channelDensity condDensity="0.05 S_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>
+
+                <channelDensity condDensity="0.005 S_per_cm2" id="Kd_all" ionChannel="Kd" ion="k" erev="-100.0 mV"/>
+
+                <channelDensity condDensity="3e-5 S_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>
 
                 <channelDensity condDensity="4e-4 S_per_cm2" id="IT_all" ionChannel="IT" ion="ca" erev="120 mV"/>
                     

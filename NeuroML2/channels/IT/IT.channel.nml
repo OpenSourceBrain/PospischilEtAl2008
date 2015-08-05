@@ -41,30 +41,7 @@
         </gate>
 
     </ionChannel>
-
-    <ComponentType name="IT_u_tau_tau" extends="baseVoltageDepTime">
-        
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-
-        <Dynamics>
-            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
-            <DerivedVariable name="t" exposure="t" dimension="time"
-                value="(30.8 + (211.4 + exp((Vm+113.2)/5)) / (1 + exp((Vm+84)/3.2))) * TIME_SCALE"/>
-        </Dynamics>
-
-    </ComponentType>
-
-    <ComponentType name="IT_u_inf_inf" extends="baseVoltageDepVariable">
-        
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-
-        <Dynamics>
-            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
-            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp((Vm+81)/4.0) )" />
-        </Dynamics>
-        
-    </ComponentType>
+    
     
     <ComponentType name="IT_s_gate" extends="gateHHtauInf">
         
@@ -86,10 +63,35 @@
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
         
         <Dynamics>
-            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
-            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp(-(Vm+57)/6.2) )" />
+            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)"/>
+            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp(-(Vm + 2 +57)/6.2) )" />
         </Dynamics>
         
     </ComponentType>
+
+    <ComponentType name="IT_u_tau_tau" extends="baseVoltageDepTime">
+
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
+            <DerivedVariable name="t" exposure="t" dimension="time"
+                value="(30.8 + (211.4 + exp((Vm+113.2)/5)) / (1 + exp((Vm+84)/3.2))) * TIME_SCALE"/>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="IT_u_inf_inf" extends="baseVoltageDepVariable">
+        
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)"/>
+            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp((Vm + 2  + 81)/4.0) )" />
+        </Dynamics>
+        
+    </ComponentType>
+    
 
 </neuroml>

@@ -15,6 +15,10 @@ def parse_arguments():
                         help='Show no plots, just save results', 
                         default=False)
                         
+    parser.add_argument('-nogui', action='store_true',
+                        help='Show no plots, just save results', 
+                        default=False)
+                        
     parser.add_argument('-duration', 
                         type=float,
                         metavar='<duration>',
@@ -45,11 +49,72 @@ def parse_arguments():
                         default=0.75,
                         help='Current clamp amplitude, in nA') 
                         
+    parser.add_argument('-gcabar_it', 
+                        type=float,
+                        metavar='<gcabar_it>',
+                        default=None,
+                        help='Conductance density of it') 
+                        
+    parser.add_argument('-gcabar_ical', 
+                        type=float,
+                        metavar='<gcabar_ical>',
+                        default=None,
+                        help='Conductance density of ical') 
+                        
+    parser.add_argument('-gkbar_im', 
+                        type=float,
+                        metavar='<gkbar_im>',
+                        default=None,
+                        help='Conductance density of im') 
+                        
+    parser.add_argument('-e_pas', 
+                        type=float,
+                        metavar='<e_pas>',
+                        default=None,
+                        help='Erev of passive cond') 
+                        
+    parser.add_argument('-g_pas', 
+                        type=float,
+                        metavar='<g_pas>',
+                        default=None,
+                        help='Conductance density of passive cond') 
+                        
+    parser.add_argument('-gnabar_hh2', 
+                        type=float,
+                        metavar='<gnabar_hh2>',
+                        default=None,
+                        help='Conductance density of na in hh2') 
+                        
+    parser.add_argument('-gkbar_hh2', 
+                        type=float,
+                        metavar='<gkbar_hh2>',
+                        default=None,
+                        help='Conductance density of k in hh2') 
+                        
+    parser.add_argument('-v_init', 
+                        type=float,
+                        metavar='<v_init>',
+                        default=None,
+                        help='Initial membrane potential') 
+                        
     return parser.parse_args()
                         
 
-
-def run_cell(cell, nogui, duration, dt, idelay, iduration, iamp):
+def run_cell(cell, 
+             nogui, 
+             duration, 
+             dt, 
+             idelay, 
+             iduration, 
+             iamp,
+             gcabar_ical=None,
+             gcabar_it=None,
+             gkbar_im=None,
+             e_pas=None,
+             g_pas=None,
+             gnabar_hh2=None,
+             gkbar_hh2=None,
+             v_init=None):
 
     h = neuron.h
 
@@ -90,6 +155,24 @@ def run_cell(cell, nogui, duration, dt, idelay, iduration, iamp):
     else:
         print('Unknown cell type: %s'%cell)
         exit()
+        
+    if gcabar_ical:
+        h("myCell.soma[0] { gcabar_ical = %s } "%gcabar_ical)
+    if gcabar_it:
+        h("myCell.soma[0] { gcabar_it = %s } "%gcabar_it)
+    if gkbar_im:
+        h("myCell.soma[0] { gkbar_im = %s } "%gkbar_im)
+    if e_pas:
+        h("myCell.soma[0] { e_pas = %s } "%e_pas)
+    if g_pas:
+        h("myCell.soma[0] { g_pas = %s } "%g_pas)
+    if gnabar_hh2:
+        h("myCell.soma[0] { gnabar_hh2 = %s } "%gnabar_hh2)
+    if gkbar_hh2:
+        h("myCell.soma[0] { gkbar_hh2 = %s } "%gkbar_hh2)
+    if v_init:
+        h("v_init = %s "%v_init)
+        
     
 
     h("objectvar Input")
@@ -121,9 +204,8 @@ def run_cell(cell, nogui, duration, dt, idelay, iduration, iamp):
     v_file_name = '%s.v.dat'%cell
     f_cell = open(v_file_name, 'w')
     for i in range(int(h.tstop * h.steps_per_ms) + 1):
-        f_cell.write('%f\t'% (float(h.v_time.get(i))/1000.0)) # Time in first column, save in SI units...
-        f_cell.write('%f\t'%(float(h.v_vect.get(i)) / 1000.0)) # Saving as SI, variable has dim: voltage
-        f_cell.write("\n")
+        f_cell.write('%f\t%f\t\n'% ( (float(h.v_time.get(i))/1000.0), (float(h.v_vect.get(i)) / 1000.0))) # Time in first column, save in SI units...; Saving as SI, variable has dim: voltage
+
     f_cell.close()
     print("Saved data to: %s"%v_file_name)
     
@@ -157,7 +239,15 @@ def main(args=None):
              args.dt, 
              args.idelay, 
              args.iduration, 
-             args.iamp)
+             args.iamp, 
+             args.gcabar_it, 
+             args.gcabar_ical, 
+             args.gkbar_im, 
+             args.e_pas, 
+             args.g_pas, 
+             args.gnabar_hh2, 
+             args.gkbar_hh2, 
+             args.v_init)
     
     
 if __name__ == "__main__":

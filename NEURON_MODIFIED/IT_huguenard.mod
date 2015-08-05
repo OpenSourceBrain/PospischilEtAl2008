@@ -48,10 +48,9 @@ PARAMETER {
 	cao	= 2	(mM)
 }
 
-: JB - adding m to be consistent with h
 STATE {
+    m
 	h
-    m 
 }
 
 ASSIGNED {
@@ -66,16 +65,14 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE castate METHOD cnexp
-    carev = (1e3) * (R*(celsius+273.15))/(2*FARADAY) * log (cao/cai)
-    ica = gcabar * h * m * m * (v-carev) : JB - m was m_inf
+	carev = (1e3) * (R*(celsius+273.15))/(2*FARADAY) * log (cao/cai)
+	ica = gcabar * m * m * h * (v-carev)
 }
 
 DERIVATIVE castate {
-
 	evaluate_fct(v)
 
 	h' = (h_inf - h) / tau_h
-    m' = (m_inf - m) / tau_m  : JB - added m' to be consistent with h'
 }
 
 
@@ -91,7 +88,6 @@ INITIAL {
     evaluate_fct(v) : JB - added to compute h/m_inf values
 
     h = h_inf : JB - WAS 0
-    m = m_inf : JB - added and made consistent with h
 }
 
 PROCEDURE evaluate_fct(v(mV)) { LOCAL Vm
@@ -110,8 +106,8 @@ PROCEDURE evaluate_fct(v(mV)) { LOCAL Vm
 	tau_h = 30.8 + (211.4 + exp((Vm+113.2)/5)) / (1 + exp((Vm+84)/3.2))
 
 	tau_h = tau_h / phi_h
-
-    tau_m = 1.0 : JB - made tau_m explicit
+    
+    m = m_inf
 
 }
 
