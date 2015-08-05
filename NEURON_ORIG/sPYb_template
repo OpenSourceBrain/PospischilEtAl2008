@@ -75,6 +75,7 @@ proc init() { local v_potassium, v_sodium
 	eca = 120 
 	gcabar_ical = 1e-4
 
+
   }
 
   print " "
