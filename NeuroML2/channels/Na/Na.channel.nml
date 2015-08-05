@@ -45,9 +45,9 @@
     <ComponentType name="Na_m_alpha_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="VT" dimension="none" value="-55">
-            <!--Note: this parameter should instead be defined only once within the ionChannel!-->
-        </Constant>
+        
+        <!--Note: this parameter should instead be defined only once within the ionChannel!-->
+        <Constant name="VT" dimension="none" value="-55"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -59,9 +59,9 @@
     <ComponentType name="Na_m_beta_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="VT" dimension="none" value="-55">
-            <!--Note: this parameter should instead be defined only once within the ionChannel!-->
-        </Constant>
+
+        <!--Note: this parameter should instead be defined only once within the ionChannel!-->
+        <Constant name="VT" dimension="none" value="-55"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -73,9 +73,9 @@
     <ComponentType name="Na_h_alpha_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="VT" dimension="none" value="-55">
-            <!--Note: this parameter should instead be defined only once within the ionChannel!-->
-        </Constant>
+        
+        <!--Note: this parameter should instead be defined only once within the ionChannel!-->
+        <Constant name="VT" dimension="none" value="-55"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -87,9 +87,9 @@
     <ComponentType name="Na_h_beta_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="VT" dimension="none" value="-55">
-            <!--Note: this parameter should instead be defined only once within the ionChannel!-->
-        </Constant>
+        
+        <!--Note: this parameter should instead be defined only once within the ionChannel!-->
+        <Constant name="VT" dimension="none" value="-55"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
