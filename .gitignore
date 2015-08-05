@@ -3,8 +3,8 @@ LEMS_Test_*.xml
 *.dat
 *.dat0*
 simulator.props
-*.mod
-*.hoc
+/NeuroML2/*/*/*.mod
+/NeuroML2/*/*/*.hoc
 *.props
 *nrn.py
 *geppetto.*
