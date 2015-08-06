@@ -1,0 +1,40 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2 https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+    
+    <Target component="sim1"/>
+    
+    <!--Include standard NeuroML 2 ComponentType definitions-->
+    
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <!--   Channel/synapse files-->
+    <Include file="../../channels/Kd/Kd.channel.nml"/>
+    <Include file="../../channels/IM/IM.channel.nml"/>
+    <Include file="../../channels/Leak/Leak.channel.nml"/>
+    <Include file="../../channels/Na/Na.channel.nml"/>
+    <Include file="../../channels/Ca/Ca.nml"/>
+    <Include file="../../channels/IT/IT.channel.nml"/>
+    
+    <!--   Cell files-->
+    <Include file="IT.nernstCa.test.cell.nml"/>
+    <!--   Network file-->
+    <Include file="IT.test.net.nml"/>
+    
+    
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
+
+        <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+
+        <OutputFile id="CG_LTS_ModelDB_v_0_0_OF" fileName="LTS.dat">
+            <OutputColumn id="v" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v"/>
+        </OutputFile>
+        
+    </Component>
+    
+    
+</Lems>

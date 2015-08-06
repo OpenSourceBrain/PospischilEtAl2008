@@ -3,7 +3,7 @@
 
 target: "LEMS_LTS.xml"
 engine: jNeuroML_NEURON
-mep: .test.LTS.spikes.mep
+mep: ../../../NEURON_MODIFIED/.test.LTS.spikes.mep
 experiments:
   spikes:
     observables:
@@ -15,4 +15,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.019
+        tolerance: 0.0498

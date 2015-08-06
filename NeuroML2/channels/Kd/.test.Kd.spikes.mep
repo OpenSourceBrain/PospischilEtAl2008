@@ -1,0 +1,12 @@
+system: Expected voltage times for Kd channel
+
+experiments:
+  one:
+    expected:
+      spike times: [312.36, 321.13]
+  two:
+    expected:
+      spike times: [301.93]
+  three:
+    expected:
+      spike times: [309.65]

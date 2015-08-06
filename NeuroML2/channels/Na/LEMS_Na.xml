@@ -1,0 +1,34 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2 https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+    
+    <Target component="sim1" reportFile="simulator.props" timesFile="time.dat"/>
+    
+    <!--Include standard NeuroML 2 ComponentType definitions-->
+    
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <!--   Channel/synapse files-->
+    <Include file="../../channels/Na/Na.channel.nml"/>
+    
+    <!--   Cell files-->
+    <Include file="Na.cell.nml"/>
+    <!--   Network file-->
+    <Include file="Na.net.nml"/>
+    
+    
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
+        
+        <Display id="CG_Na_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_Na_ModelDB, VOLTAGE" xmin="-100" xmax="1100" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_Na_ModelDB/0/Na_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+        
+        <OutputFile id="CG_Na_ModelDB_v_0_0_OF" fileName="Na.dat">
+            <OutputColumn id="v" quantity="CG_Na_ModelDB/0/Na_ModelDB/v"/>
+        </OutputFile>
+    </Component>
+    
+    
+</Lems>

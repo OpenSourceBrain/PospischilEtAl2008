@@ -11,12 +11,12 @@
     <Include file="Simulation.xml"/>
     
     <!--   Channel/synapse files-->
-    <Include file="../../channels/Kd.channel.nml"/>
-    <Include file="../../channels/IM.channel.nml"/>
-    <Include file="../../channels/LeakConductance.channel.nml"/>
-    <Include file="../../channels/Na.channel.nml"/>
-    <Include file="../../channels/CalciumPool.nml"/>
-    <Include file="../../channels/IT.channel.nml"/>
+    <Include file="../../channels/Kd/Kd.channel.nml"/>
+    <Include file="../../channels/IM/IM.channel.nml"/>
+    <Include file="../../channels/Leak/Leak.channel.nml"/>
+    <Include file="../../channels/Na/Na.channel.nml"/>
+    <Include file="../../channels/Ca/Ca.nml"/>
+    <Include file="../../channels/IT/IT.channel.nml"/>
     
     <!--   Cell files-->
     <Include file="LTS.cell.nml"/>
@@ -24,14 +24,18 @@
     <Include file="LTS.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.005ms" target="network_PospischilEtAl2008">
-        
-<!--        <Display id="CG_LTS_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="-10" xmax="3010" ymin="-100" ymax="70" timeScale="1ms">-->
-<!--            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>-->
-<!--        </Display>-->
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
 
         <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
             <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+    
+        <Display id="caConc" title="PospischilEtAl2008: [Ca2+]" xmin="0" xmax="1000" ymin="0" ymax="1e-3" timeScale="1ms">
+            <Line id="caConc" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/caConc" scale="1 mM" color="#000000"/>
+        </Display>
+        
+        <Display id="eca" title="PospischilEtAl2008: eca" xmin="0" xmax="1000" ymin="0" ymax="140" timeScale="1ms">
+            <Line id="eca" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IT_all/erev" scale="1 mV" color="#000000"/>
         </Display>
 
         <OutputFile id="CG_LTS_ModelDB_v_0_0_OF" fileName="LTS.dat">

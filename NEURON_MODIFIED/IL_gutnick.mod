@@ -56,8 +56,13 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX ical
+    
+    
+    : PG: NOTE: No READ cao, cai!!!
+    
 	USEION ca READ eca WRITE ica
-        RANGE gcabar, alpha_m, beta_m, alpha_h, beta_h, m, h, carev
+    
+    RANGE gcabar, alpha_m, beta_m, alpha_h, beta_h, m, h, carev
 }
 
 
@@ -66,8 +71,8 @@ UNITS {
 	(mV) = (millivolt)
 	(molar) = (1/liter)
 	(mM) = (millimolar)
-	FARADAY = (faraday) (coulomb)
-	R = (k-mole) (joule/degC)
+	FARADAY = 96485.309 (coulomb)  : PG: using inbuilt NEURON value for FARADAY
+	R = 8.31441 (joule/degC)       : PG: using inbuilt NEURON value for R
 }
 
 

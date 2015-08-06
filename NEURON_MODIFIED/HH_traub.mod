@@ -40,7 +40,7 @@ PARAMETER {
 	celsius = 36    (degC)
 	dt              (ms)
 	v               (mV)
-	vtraub  = -63   (mV)
+	vtraub  = -55   (mV)   : PG changed this from -63 to -55, as this is value for vtraub is used in all ModelDB examples
 }
 
 STATE {

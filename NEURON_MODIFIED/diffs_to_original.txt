@@ -1,0 +1,177 @@
+
+
+####################   cadecay_destexhe.mod    ####################
+
+65c65
+<     SOLVE state METHOD cnexp : JB - WAS derivimplicit
+---
+> 	SOLVE state METHOD derivimplicit
+
+
+####################   IT_huguenard.mod    ####################
+
+51d50
+< : JB - adding m to be consistent with h
+54d52
+<     m 
+70c68
+<     ica = gcabar * h * m * m * (v-carev) : JB - m was m_inf
+---
+> 	ica = gcabar * m_inf * m_inf * h * (v-carev)
+74d71
+< 
+78d74
+<     m' = (m_inf - m) / tau_m  : JB - added m' to be consistent with h'
+83a80
+> 	h = 0
+90,94d86
+< 
+<     evaluate_fct(v) : JB - added to compute h/m_inf values
+< 
+<     h = h_inf : JB - WAS 0
+<     m = m_inf : JB - added and made consistent with h
+113,114d104
+< 
+<     tau_m = 1.0 : JB - made tau_m explicit
+
+
+####################   IL_gutnick.mod    ####################
+
+118,121c118,119
+< 
+<     m = alpha_m / (alpha_m + beta_m) : JB - these two were commented out
+< 	h = alpha_h / (alpha_h + beta_h)
+< 
+---
+> :	m = alpha_m / (alpha_m + beta_m)
+> :	h = alpha_h / (alpha_h + beta_h)
+
+
+####################   IM_cortex.mod    ####################
+
+71c71,72
+< 
+---
+> 	evaluate_fct(v)
+> 	m = 0
+77,80d77
+<     evaluate_fct(v) : JB - moved here from first line
+<                     : as tau_peak is used in evaluate_fct
+< 
+<     m = m_inf : JB - this was 0
+
+
+####################   HH_traub.mod    ####################
+
+43c43
+< 	vtraub  = -55   (mV)   : PG changed this from -63 to -55, as this is value for vtraub is used in all ModelDB examples
+---
+> 	vtraub  = -63   (mV)
+93,101c93,95
+< 
+<     tadj = 3.0 ^ ((celsius-36)/ 10 ) : JB - was the last line, moved
+<                                      : to top as value used in evaluate_fct
+< 
+<     evaluate_fct(v)  : JB - Added here, to compute x_inf vars
+< 
+< 	m = m_inf  : JB - These were all 0
+< 	h = h_inf
+< 	n = n_inf
+---
+> 	m = 0
+> 	h = 0
+> 	n = 0
+107c101
+< 
+---
+> 	tadj = 3.0 ^ ((celsius-36)/ 10 )
+
+
+####################   demo_IN_FS.hoc    ####################
+
+110c110
+< xopen("../NEURON_ORIG/sIN_template")		// read geometry file
+---
+> xopen("sIN_template")		// read geometry file
+166c166
+< steps_per_ms = 10   //JB - WAS 5
+---
+> steps_per_ms = 5
+
+
+####################   demo_PY_IB.hoc    ####################
+
+105c105
+< xopen("../NEURON_ORIG/sPYb_template")		// read geometry file
+---
+> xopen("sPYb_template")		// read geometry file
+176,177c176,177
+< Dt = .01				// macroscopic time step <<>>
+< npoints = 300000
+---
+> Dt = .1				// macroscopic time step <<>>
+> npoints = 30000
+179c179
+< dt = 0.01			// must be submultiple of Dt
+---
+> dt = 0.1			// must be submultiple of Dt
+183c183
+< steps_per_ms = 100		//JB - WAS 5, and Dt was .1
+---
+> steps_per_ms = 5
+
+
+####################   demo_PY_IBR.hoc    ####################
+
+106c106
+< xopen("../NEURON_ORIG/sPYbr_template")		// read geometry file
+---
+> xopen("sPYbr_template")		// read geometry file
+178,179c178,179
+< Dt = .01				// macroscopic time step <<>>
+< npoints = 300000
+---
+> Dt = .1				// macroscopic time step <<>>
+> npoints = 30000
+181c181
+< dt = 0.01			// must be submultiple of Dt
+---
+> dt = 0.1			// must be submultiple of Dt
+185c185
+< steps_per_ms = 100		//JB - WAS 5, and Dt was .1
+---
+> steps_per_ms = 5
+
+
+####################   demo_PY_LTS.hoc    ####################
+
+111c111
+< xopen("../NEURON_ORIG/sPYr_template")		// read geometry file
+---
+> xopen("sPYr_template")		// read geometry file
+191,192c191,192
+< Dt = .01				// macroscopic time step <<>>
+< npoints = 100000
+---
+> Dt = .1				// macroscopic time step <<>>
+> npoints = 10000
+194c194
+< dt = 0.01			// must be submultiple of Dt
+---
+> dt = 0.1			// must be submultiple of Dt
+198c198
+< steps_per_ms = 100		//JB - WAS 5 and Dt was .1
+---
+> steps_per_ms = 5
+
+
+####################   demo_PY_RS.hoc    ####################
+
+116c116
+< xopen("../NEURON_ORIG/sPY_template")		// read geometry file
+---
+> xopen("sPY_template")		// read geometry file
+172c172
+< steps_per_ms = 10	//JB - WAS 5
+---
+> steps_per_ms = 5

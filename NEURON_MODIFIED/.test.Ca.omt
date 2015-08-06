@@ -1,0 +1,40 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation 
+# Still in development, subject to change without notice!!
+
+target: "test_Ca_ModelDB.hoc"
+engine: NEURON
+mep: .test.Ca.mep
+experiments:
+  one:
+    observables:
+      spike times:
+        file: 
+          path: Ca_Only.cai.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0.00026
+        tolerance: 0
+  two:
+    observables:
+      spike times:
+        file: 
+          path: Ca_Only.cai.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0.00027
+        tolerance: 0
+  three:
+    observables:
+      spike times:
+        file: 
+          path: Ca_Only.cai.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0.00029
+        tolerance: 0

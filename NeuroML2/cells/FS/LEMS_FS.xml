@@ -11,10 +11,10 @@
     <Include file="Simulation.xml"/>
     
     <!--   Channel/synapse files-->
-    <Include file="../../channels/Kd.channel.nml"/>
-    <Include file="../../channels/IM.channel.nml"/>
-    <Include file="../../channels/LeakConductance.channel.nml"/>
-    <Include file="../../channels/Na.channel.nml"/>
+    <Include file="../../channels/Kd/Kd.channel.nml"/>
+    <Include file="../../channels/IM/IM.channel.nml"/>
+    <Include file="../../channels/Leak/Leak.channel.nml"/>
+    <Include file="../../channels/Na/Na.channel.nml"/>
     
     <!--   Cell files-->
     <Include file="FS.cell.nml"/>
@@ -22,7 +22,7 @@
     <Include file="FS.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.01ms" target="network_PospischilEtAl2008">
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
         
         <Display id="CG_FS_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_FS_ModelDB, VOLTAGE" xmin="-100" xmax="1100" ymin="-100" ymax="70" timeScale="1ms">
             <Line id="v" timeScale="1 ms" quantity="CG_FS_ModelDB/0/FS_ModelDB/v" scale="1 mV" color="#000000"/>

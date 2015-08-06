@@ -108,7 +108,7 @@ print "<<            CREATE CELLS          >>"
 print "<<==================================>>"
 print " "
 
-xopen("sPYr_template")		// read geometry file
+xopen("../NEURON_ORIG/sPYr_template")		// read geometry file
 
 ncells = 1			// nb of cells in each layer <<>>
 

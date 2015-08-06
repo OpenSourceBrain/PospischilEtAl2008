@@ -3,7 +3,7 @@
 
 target: "LEMS_IB.xml"
 engine: jNeuroML
-mep: .test.IB.spikes.LEMS.mep
+mep: ../../../NEURON_MODIFIED/.test.IB.spikes.mep
 experiments:
   spikes:
     observables:

@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation 
+# Still in development, subject to change without notice!!
+
+target: "test_RS_ModelDB.hoc"
+engine: NEURON
+mep: .test.RS.spikes.mep
+experiments:
+  spikes:
+    observables:
+      spike times:
+        file: 
+          path: RS.v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0

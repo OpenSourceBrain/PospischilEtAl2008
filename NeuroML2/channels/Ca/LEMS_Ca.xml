@@ -1,0 +1,61 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2 https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+    
+    <Target component="sim1"/>
+    
+    <!--Include standard NeuroML 2 ComponentType definitions-->
+    
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <!--   Channel/synapse files-->
+    <Include file="../../channels/Kd/Kd.channel.nml"/>
+    <Include file="../../channels/IM/IM.channel.nml"/>
+    <Include file="../../channels/Leak/Leak.channel.nml"/>
+    <Include file="../../channels/Na/Na.channel.nml"/>
+    <Include file="../../channels/Ca/Ca.nml"/>
+    <Include file="../../channels/IT/IT.channel.nml"/>
+    
+    <!--   Cell files-->
+    <Include file="Ca.test.cell.nml"/>
+    <!--   Network file-->
+    <Include file="Ca.test.net.nml"/>
+    
+    
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.05ms" target="network_PospischilEtAl2008">
+
+        <Display id="CG_Ca_ModelDB_test_v" title="PospischilEtAl2008: VOLTAGE" xmin="0" xmax="1000" ymin="-90" ymax="100" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+        
+        <Display id="CG_Ca_ModelDB_test" title="PospischilEtAl2008: [Ca2+]" xmin="0" xmax="1000" ymin="0" ymax="1e-3" timeScale="1ms">
+            <Line id="caConc" timeScale="1 ms" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/caConc" scale="1 mM" color="#000000"/>
+        </Display>
+        
+        <Display id="CG_Ca_ModelDB_test_eca" title="PospischilEtAl2008: eca" xmin="0" xmax="1000" ymin="0" ymax="140" timeScale="1ms">
+            <Line id="eca" timeScale="1 ms" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/biophys/membraneProperties/IT_all/erev" scale="1 mV" color="#000000"/>
+        </Display>
+        
+        <Display id="CG_L" title="PospischilEtAl2008: s u " xmin="0" xmax="1000" ymin="-0.1" ymax="1.1" timeScale="1ms">
+            <Line id="s" timeScale="1 ms" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/biophys/membraneProperties/IT_all/IT/s/q" scale="1" color="#000000"/>
+            <Line id="u" timeScale="1 ms" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/biophys/membraneProperties/IT_all/IT/u/q" scale="1" color="#FFF000"/>
+        </Display>
+
+        <OutputFile id="CG_Ca_ModelDB_v_0_0_OFv" fileName="Ca.v.dat">
+            <OutputColumn id="v" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/v"/>
+        </OutputFile>
+        
+        <OutputFile id="CG_Ca_ModelDB_v_0_0_OF" fileName="Ca.cai.dat">
+            <OutputColumn id="cai" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/caConc"/>
+        </OutputFile>
+        
+        <OutputFile id="CG_Ca_ModelDB_v_0_0_OF2" fileName="Ca.eca.dat">
+            <OutputColumn id="eca" quantity="CG_Ca_ModelDB/0/Ca_ModelDB/biophys/membraneProperties/IT_all/erev"/>
+        </OutputFile>
+        
+    </Component>
+    
+    
+</Lems>
