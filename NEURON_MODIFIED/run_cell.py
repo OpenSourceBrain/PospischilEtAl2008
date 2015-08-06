@@ -1,6 +1,8 @@
 import neuron
 import sys
 
+h = neuron.h
+
 def parse_arguments():
     """Parse command line arguments"""
     import argparse
@@ -115,9 +117,12 @@ def run_cell(cell,
              g_pas=None,
              gnabar_hh2=None,
              gkbar_hh2=None,
-             v_init=None):
+             v_init=None,
+             label=None):
 
-    h = neuron.h
+    print label
+    print gnabar_hh2
+    
 
     h.load_file("stdlib.hoc")
     h.load_file("stdrun.hoc")
@@ -157,22 +162,23 @@ def run_cell(cell,
         print('Unknown cell type: %s'%cell)
         exit()
         
-    if gcabar_ical:
-        h("myCell.soma[0] { gcabar_ical = %s } "%gcabar_ical)
-    if gcabar_it:
-        h("myCell.soma[0] { gcabar_it = %s } "%gcabar_it)
-    if gkbar_im:
-        h("myCell.soma[0] { gkbar_im = %s } "%gkbar_im)
-    if e_pas:
-        h("myCell.soma[0] { e_pas = %s } "%e_pas)
-    if g_pas:
-        h("myCell.soma[0] { g_pas = %s } "%g_pas)
-    if gnabar_hh2:
-        h("myCell.soma[0] { gnabar_hh2 = %s } "%gnabar_hh2)
-    if gkbar_hh2:
-        h("myCell.soma[0] { gkbar_hh2 = %s } "%gkbar_hh2)
-    if v_init:
-        h("v_init = %s "%v_init)
+    if gcabar_ical is not None:
+        h('myCell.soma[0] { if (ismembrane("ical")) { gcabar_ical = %s } } '%gcabar_ical)
+    if gcabar_it is not None:
+        h('myCell.soma[0] { if (ismembrane("it")) { gcabar_it = %s } } '%gcabar_it)
+    if gkbar_im is not None:
+        h('myCell.soma[0] { if (ismembrane("im")) { gkbar_im = %s } } '%gkbar_im)
+    if e_pas is not None:
+        h('myCell.soma[0] { e_pas = %s } '%e_pas)
+    if g_pas is not None:
+        h('myCell.soma[0] { g_pas = %s } '%g_pas)
+    if gnabar_hh2 is not None:
+        print 8888
+        h('myCell.soma[0] { if (ismembrane("hh2")) { gnabar_hh2 = %s } } '%gnabar_hh2)
+    if gkbar_hh2 is not None:
+        h('myCell.soma[0] { if (ismembrane("hh2")) { gkbar_hh2 = %s } } '%gkbar_hh2)
+    if v_init is not None:
+        h('v_init = %s '%v_init)
         
     
 
@@ -197,10 +203,15 @@ def run_cell(cell,
     h.v_vect.resize((h.tstop * h.steps_per_ms) + 1)
     
     if showca:
-        h(' objectvar ca_vect ')
-        h(' { ca_vect = new Vector() } ')
-        h(' ca_vect.record(&myCell.soma[0].cai(0.5)) ')
-        h.ca_vect.resize((h.tstop * h.steps_per_ms) + 1)
+        h(' objectvar cai_vect ')
+        h(' { cai_vect = new Vector() } ')
+        h(' cai_vect.record(&myCell.soma[0].cai(0.5)) ')
+        h.cai_vect.resize((h.tstop * h.steps_per_ms) + 1)
+        
+        h(' objectvar eca_vect ')
+        h(' { eca_vect = new Vector() } ')
+        h(' eca_vect.record(&myCell.soma[0].eca(0.5)) ')
+        h.eca_vect.resize((h.tstop * h.steps_per_ms) + 1)
     
     print("Running a simulation of %sms (dt = %sms)" % (h.tstop, h.dt))
 
@@ -208,31 +219,65 @@ def run_cell(cell,
 
     print("Finished simulation, saving results...")
     
-    v_file_name = '%s.v.dat'%cell
-    f_cell = open(v_file_name, 'w')
-    for i in range(int(h.tstop * h.steps_per_ms) + 1):
-        f_cell.write('%f\t%f\t\n'% ( (float(h.v_time.get(i))/1000.0), (float(h.v_vect.get(i)) / 1000.0))) # Time in first column, save in SI units...; Saving as SI, variable has dim: voltage
+    if label == None:
+        label = cell
+        
+    
+    v_file_name = '%s.v.dat'%label.replace(' ', '_')
+    save_vector(v_file_name, h.v_vect, h.v_time)
+    
+    if showca:
+        cai_file_name = '%s.cai.dat'%label.replace(' ', '_')
+        save_vector(cai_file_name, h.cai_vect, h.v_time)
 
-    f_cell.close()
-    print("Saved data to: %s"%v_file_name)
+        eca_file_name = '%s.eca.dat'%label.replace(' ', '_')
+        save_vector(eca_file_name, h.eca_vect, h.v_time)
     
     
     if not nogui:
         
         print('Plotting saved results')
         import matplotlib.pyplot as pylab
+        
         fig = pylab.figure()
-        fig.canvas.set_window_title("Simuation of %s"%(cell))
+        fig.canvas.set_window_title("Membrane potential of %s (%s)"%(cell, label))
         
         pylab.xlabel('Time (ms)')
         pylab.ylabel('Membrane potential (mV)')
         pylab.grid('on')
         
-        pylab.plot(h.v_time, h.v_vect)
+        pylab.plot(h.v_time, h.v_vect, label=label)
+        pylab.legend()
+        
+        if showca:
+            fig = pylab.figure()
+            fig.canvas.set_window_title("[Ca2+] of %s (%s)"%(cell, label))
+
+            pylab.xlabel('Time (ms)')
+            pylab.ylabel('[Ca2+]')
+            pylab.grid('on')
+
+            pylab.plot(h.v_time, h.cai_vect, label='[Ca2+] %s'%label)
+            pylab.legend()
+            
+            fig = pylab.figure()
+            fig.canvas.set_window_title("Rev pot of Ca of %s (%s)"%(cell, label))
+
+            pylab.xlabel('Time (ms)')
+            pylab.ylabel('Reversal potential Ca (mV)')
+            pylab.grid('on')
+
+            pylab.plot(h.v_time, h.eca_vect, label='eca %s'%label)
+            pylab.legend()
         
         pylab.show()
         
-        
+def save_vector(file_name, vector, time_v):
+    vfile = open(file_name, 'w')
+    for i in range(int(h.tstop * h.steps_per_ms) + 1):
+        vfile.write('%f\t%f\t\n'% ( (float(time_v.get(i))/1000.0), (float(vector.get(i)) / 1000.0))) # Time in first column, save in SI units...; Saving as SI, variable has dim: voltage
+    vfile.close()
+    print("Saved data to: %s"%file_name)
     
 def main(args=None):
     """Main"""
