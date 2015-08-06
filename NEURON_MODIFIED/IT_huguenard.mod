@@ -34,8 +34,8 @@ UNITS {
 	(mA) =	(milliamp)
 	(mM) =	(millimolar)
 
-	FARADAY = (faraday) (coulomb)
-	R = (k-mole) (joule/degC)
+	FARADAY = 96485.309 (coulomb)  : PG: using inbuilt NEURON value for FARADAY
+	R = 8.31441 (joule/degC)       : PG: using inbuilt NEURON value for R
 }
 
 PARAMETER {

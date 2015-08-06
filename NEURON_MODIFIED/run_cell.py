@@ -224,14 +224,14 @@ def run_cell(cell,
         
     
     v_file_name = '%s.v.dat'%label.replace(' ', '_')
-    save_vector(v_file_name, h.v_vect, h.v_time)
+    save_vector(v_file_name, h.v_vect, h.v_time, 1000.0)
     
     if showca:
         cai_file_name = '%s.cai.dat'%label.replace(' ', '_')
-        save_vector(cai_file_name, h.cai_vect, h.v_time)
+        save_vector(cai_file_name, h.cai_vect, h.v_time, 1)
 
         eca_file_name = '%s.eca.dat'%label.replace(' ', '_')
-        save_vector(eca_file_name, h.eca_vect, h.v_time)
+        save_vector(eca_file_name, h.eca_vect, h.v_time, 1000.0)
     
     
     if not nogui:
@@ -272,10 +272,10 @@ def run_cell(cell,
         
         pylab.show()
         
-def save_vector(file_name, vector, time_v):
+def save_vector(file_name, vector, time_v, factor):
     vfile = open(file_name, 'w')
     for i in range(int(h.tstop * h.steps_per_ms) + 1):
-        vfile.write('%f\t%f\t\n'% ( (float(time_v.get(i))/1000.0), (float(vector.get(i)) / 1000.0))) # Time in first column, save in SI units...; Saving as SI, variable has dim: voltage
+        vfile.write('%f\t%e\t\n'% ( (float(time_v.get(i))/1000.0), (float(vector.get(i)) / factor))) # Time in first column, save in SI units...; Saving as SI, variable has dim: voltage
     vfile.close()
     print("Saved data to: %s"%file_name)
     

@@ -32,6 +32,7 @@
 
         <gate id="s" type="IT_s_gate" instances="2">
             <steadyState type="IT_s_inf_inf"/>
+            <timeCourse type="fixedTimeCourse" tau="0ms"/>
         </gate>
 
         <gate id="u" type="gateHHtauInf" instances="1">
@@ -45,15 +46,16 @@
     
     <ComponentType name="IT_s_gate" extends="gateHHtauInf">
         
+        <Exposure name="tau" dimension="time"/>
         <Exposure name="inf" dimension="none" />
         
         <Dynamics>
             <DerivedVariable name="inf" dimension="none" exposure="inf" select="steadyState/x" />
             <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="inf^instances" />
             
-            <DerivedVariable name="q" exposure="q" dimension="none" value="0" />
+            <DerivedVariable name="q" exposure="q" dimension="none" value="inf" />
             <DerivedVariable name="tau" exposure="tau" dimension="none" value="0" />
-            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="0" />
+            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="1" />
         </Dynamics>
         
     </ComponentType>
