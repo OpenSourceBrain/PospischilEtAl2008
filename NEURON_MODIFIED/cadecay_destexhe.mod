@@ -36,7 +36,7 @@ UNITS {
 }
 
 CONSTANT {
-	FARADAY = 96489		(coul)		: moles do not appear in units
+	FARADAY = 96485.309		(coul)	: moles do not appear in units  : PG: using inbuilt NEURON value for FARADAY
 :	FARADAY = 96.489	(k-coul)	: moles do not appear in units
 }
 

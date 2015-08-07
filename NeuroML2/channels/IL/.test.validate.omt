@@ -2,5 +2,5 @@
 # Still in development, subject to change without notice!!
 
 # This test will validate all of the NeuroML 2 files in the current directory using: jnml -validate *.nml
-target: "*.nml"
+target: "*channel.nml"
 engine: jNeuroML_validate

@@ -107,7 +107,7 @@ print "<<            CREATE CELLS          >>"
 print "<<==================================>>"
 print " "
 
-xopen("sIN_template")		// read geometry file
+xopen("../NEURON_ORIG/sIN_template")		// read geometry file
 
 ncells = 1			// nb of cells in each layer <<>>
 

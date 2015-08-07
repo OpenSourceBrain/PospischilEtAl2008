@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="LTS_ModelDB">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Ca_ModelDB">
     
-    <cell id="LTS_ModelDB">
+    <cell id="Ca_ModelDB">
         
         <notes>Cell with Ca pool and IT channel, with static 120mV Ca reversal potential. For testing Ca pool.</notes>
         
-        <morphology id="morphology_LTS_ModelDB">
+        <morphology id="morphology_Ca_ModelDB">
             
             <segment id="0" name="Soma">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="96.0"/>
@@ -33,15 +33,9 @@
             
             <membraneProperties>
 
-<!--                <channelDensity condDensity="1e-5 S_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-85.0 mV" ion="non_specific"/>-->
-<!---->
-<!--                <channelDensity condDensity="0.05 S_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>-->
-<!---->
-<!--                <channelDensity condDensity="0.005 S_per_cm2" id="Kd_all" ionChannel="Kd" ion="k" erev="-100.0 mV"/>-->
-<!---->
-<!--                <channelDensity condDensity="3e-5 S_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>-->
+               <channelDensity condDensity="1e-5 S_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-85.0 mV" ion="non_specific"/>
 
-                <channelDensity condDensity="4e-4 S_per_cm2" id="IT_all" ionChannel="IT" ion="ca" erev="120 mV"/>
+                <channelDensityNernst condDensity="4e-4 S_per_cm2" id="IT_all" ionChannel="IT" ion="ca"/>
                     
                 <spikeThresh value="0 mV"/>
                 

@@ -32,6 +32,7 @@
 
         <gate id="s" type="IT_s_gate" instances="2">
             <steadyState type="IT_s_inf_inf"/>
+            <timeCourse type="fixedTimeCourse" tau="0ms"/>
         </gate>
 
         <gate id="u" type="gateHHtauInf" instances="1">
@@ -41,9 +42,37 @@
         </gate>
 
     </ionChannel>
+    
+    
+    <ComponentType name="IT_s_gate" extends="gateHHtauInf">
+        
+        <Exposure name="tau" dimension="time"/>
+        <Exposure name="inf" dimension="none" />
+        
+        <Dynamics>
+            <DerivedVariable name="inf" dimension="none" exposure="inf" select="steadyState/x" />
+            <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="inf^instances" />
+            
+            <DerivedVariable name="q" exposure="q" dimension="none" value="inf" />
+            <DerivedVariable name="tau" exposure="tau" dimension="none" value="0" />
+            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="1" />
+        </Dynamics>
+        
+    </ComponentType>
+    
+    <ComponentType name="IT_s_inf_inf" extends="baseVoltageDepVariable">
+        
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        
+        <Dynamics>
+            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)"/>
+            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp(-(Vm + 2 +57)/6.2) )" />
+        </Dynamics>
+        
+    </ComponentType>
 
     <ComponentType name="IT_u_tau_tau" extends="baseVoltageDepTime">
-        
+
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
 
@@ -60,36 +89,11 @@
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
 
         <Dynamics>
-            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
-            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp((Vm+81)/4.0) )" />
+            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)"/>
+            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp((Vm + 2  + 81)/4.0) )" />
         </Dynamics>
         
     </ComponentType>
     
-    <ComponentType name="IT_s_gate" extends="gateHHtauInf">
-        
-        <Exposure name="inf" dimension="none" />
-        
-        <Dynamics>
-            <DerivedVariable name="inf" dimension="none" exposure="inf" select="steadyState/x" />
-            <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="inf^instances" />
-            
-            <DerivedVariable name="q" exposure="q" dimension="none" value="0" />
-            <DerivedVariable name="tau" exposure="tau" dimension="none" value="0" />
-            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="0" />
-        </Dynamics>
-        
-    </ComponentType>
-    
-    <ComponentType name="IT_s_inf_inf" extends="baseVoltageDepVariable">
-        
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        
-        <Dynamics>
-            <DerivedVariable name="Vm" dimension="none" value="(v / VOLT_SCALE)+2"/>
-            <DerivedVariable name="x" exposure="x" dimension="none" value="1.0 / ( 1 + exp(-(Vm+57)/6.2) )" />
-        </Dynamics>
-        
-    </ComponentType>
 
 </neuroml>

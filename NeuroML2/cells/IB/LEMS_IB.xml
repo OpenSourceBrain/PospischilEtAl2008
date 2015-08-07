@@ -24,7 +24,7 @@
     <Include file="IB.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="3000.0ms" step="0.005ms" target="network_PospischilEtAl2008">
+    <Component type="Simulation" id="sim1" length="3000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
 
         <Display id="CG_IB_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_IB_ModelDB, VOLTAGE" xmin="450" xmax="700" ymin="-100" ymax="70" timeScale="1ms">
             <Line id="v" timeScale="1 ms" quantity="CG_IB_ModelDB/0/IB_ModelDB/v" scale="1 mV" color="#000000"/>

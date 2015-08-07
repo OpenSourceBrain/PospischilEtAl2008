@@ -113,7 +113,7 @@ print "<<            CREATE CELLS          >>"
 print "<<==================================>>"
 print " "
 
-xopen("sPY_template")		// read geometry file
+xopen("../NEURON_ORIG/sPY_template")		// read geometry file
 
 ncells = 1			// nb of cells in each layer <<>>
 

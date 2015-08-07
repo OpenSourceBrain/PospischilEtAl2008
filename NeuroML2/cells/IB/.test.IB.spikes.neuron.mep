@@ -1,6 +1,0 @@
-system: Expected spike times for IB cell
-
-experiments:
-  spikes:
-    expected:
-      spike times: [617.745, 628.6350000000001, 642.0649999999999, 670.9150000000001, 1086.33, 1400.325, 1708.435, 2011.9699999999998, 2313.55]
