@@ -3,38 +3,38 @@
 
 target: "LEMS_Ca.xml"
 engine: jNeuroML_NEURON
-mep: .test.Ca.mep
+mep: ../../../NEURON_MODIFIED/.test.Ca.mep
 experiments:
   one:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: Ca.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 0.25
-        tolerance: 0
+          threshold: 0.00026
+        tolerance: 0.00
   two:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: Ca.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 0.27
-        tolerance: 0
+          threshold: 0.00027
+        tolerance: 0.000
   three:
     observables:
       spike times:
         file: 
-          path: LTS.dat
+          path: Ca.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 0.29
-        tolerance: 0
+          threshold: 0.00029
+        tolerance: 0.00
