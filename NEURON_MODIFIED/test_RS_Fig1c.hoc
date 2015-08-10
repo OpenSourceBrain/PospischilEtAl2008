@@ -12,5 +12,6 @@ nrnpython("run_cell('RS', \
                     gnabar_hh2  = 0.05, \
                     gkbar_hh2   = 0.005, \
                     vtraub_hh2  = -60, \
+                    gkbar_im    = 7e-5, \
                     v_init      = -65)")
 
