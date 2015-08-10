@@ -93,6 +93,12 @@ def parse_arguments():
                         default=None,
                         help='Conductance density of k in hh2') 
                         
+    parser.add_argument('-vtraub_hh2', 
+                        type=float,
+                        metavar='<vtraub_hh2>',
+                        default=None,
+                        help='Voltage shift from Traub model in hh2') 
+                        
     parser.add_argument('-v_init', 
                         type=float,
                         metavar='<v_init>',
@@ -117,11 +123,9 @@ def run_cell(cell,
              g_pas=None,
              gnabar_hh2=None,
              gkbar_hh2=None,
+             vtraub_hh2=None,
              v_init=None,
              label=None):
-
-    print label
-    print gnabar_hh2
     
 
     h.load_file("stdlib.hoc")
@@ -173,10 +177,11 @@ def run_cell(cell,
     if g_pas is not None:
         h('myCell.soma[0] { g_pas = %s } '%g_pas)
     if gnabar_hh2 is not None:
-        print 8888
         h('myCell.soma[0] { if (ismembrane("hh2")) { gnabar_hh2 = %s } } '%gnabar_hh2)
     if gkbar_hh2 is not None:
         h('myCell.soma[0] { if (ismembrane("hh2")) { gkbar_hh2 = %s } } '%gkbar_hh2)
+    if vtraub_hh2 is not None:
+        h('myCell.soma[0] { if (ismembrane("hh2")) { vtraub_hh2 = %s } } '%vtraub_hh2)
     if v_init is not None:
         h('v_init = %s '%v_init)
         
@@ -300,6 +305,7 @@ def main(args=None):
              args.g_pas, 
              args.gnabar_hh2, 
              args.gkbar_hh2, 
+             args.vtraub_hh2, 
              args.v_init)
     
     

@@ -1,0 +1,19 @@
+nrnpython("from run_cell import run_cell")
+
+nrnpython("run_cell('IB', \
+            nogui      = True, \
+            showca     = True, \
+            duration   = 1000, \
+            dt         = 0.01, \
+            idelay     = 300, \
+            iduration  = 400, \
+            iamp       = 0.2, \
+            gcabar_ical= 1.7e-4, \
+            gkbar_im   = 0, \
+            e_pas      = -85, \
+            g_pas      = 1e-5, \
+            gnabar_hh2 = 0, \
+            gkbar_hh2  = 0, \
+            v_init     = -84, \
+            label      = 'CaL Only'  )")
+
