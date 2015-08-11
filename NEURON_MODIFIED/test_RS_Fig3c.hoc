@@ -1,6 +1,6 @@
 nrnpython("from run_cell import run_cell")
 
-nrnpython("run_cell('RS', \
+nrnpython("run_cell('FS', \
                     nogui       = False, \
                     diameter    = 67, \
                     duration    = 1000, \
