@@ -3,7 +3,7 @@
 /NeuroML2/cells/RS/RS.datnrn
 LEMS_Test_*.xml
 *.dat
-*.dat.lems
+*.dat*.lems
 *.dat.nrn
 *.dat0*
 simulator.props

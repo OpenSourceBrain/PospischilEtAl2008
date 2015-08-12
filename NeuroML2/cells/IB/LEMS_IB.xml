@@ -24,15 +24,31 @@
     <Include file="IB.net.nml"/>
     
     
-    <Component type="Simulation" id="sim1" length="3000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
+    <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
 
-        <Display id="CG_IB_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_IB_ModelDB, VOLTAGE" xmin="450" xmax="700" ymin="-100" ymax="70" timeScale="1ms">
+        <Display id="CG_IB_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_IB_ModelDB, VOLTAGE" xmin="-50" xmax="1050" ymin="-100" ymax="70" timeScale="1ms">
             <Line id="v" timeScale="1 ms" quantity="CG_IB_ModelDB/0/IB_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+        
+        <Display id="caConc" title="PospischilEtAl2008: [Ca2+]" xmin="0" xmax="1000" ymin="0" ymax="1e-3" timeScale="1ms">
+            <Line id="caConc" timeScale="1 ms" quantity="CG_IB_ModelDB/0/IB_ModelDB/caConc" scale="1 mM" color="#000000"/>
+        </Display>
+        
+        <Display id="eca" title="PospischilEtAl2008: eca" xmin="0" xmax="1000" ymin="0" ymax="140" timeScale="1ms">
+            <Line id="eca" timeScale="1 ms" quantity="CG_IB_ModelDB/0/IB_ModelDB/biophys/membraneProperties/IL_all/erev" scale="1 mV" color="#000000"/>
         </Display>
 
         <OutputFile id="CG_IB_ModelDB_v_0_0_OF" fileName="IB.dat">
             <OutputColumn id="v" quantity="CG_IB_ModelDB/0/IB_ModelDB/v"/>
         </OutputFile>
+        
+        <OutputFile id="f_cai" fileName="IB.cai.dat">
+            <OutputColumn id="cai" quantity="CG_IB_ModelDB/0/IB_ModelDB/caConc"/>
+        </OutputFile>
+        <!--
+        <OutputFile id="f_eca" fileName="IB.eca.dat">
+            <OutputColumn id="eca" quantity="CG_IB_ModelDB/0/IB_ModelDB/biophys/membraneProperties/IL_all/erev"/>
+        </OutputFile>-->
         
     </Component>
     
