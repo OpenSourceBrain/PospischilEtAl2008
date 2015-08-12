@@ -2,6 +2,10 @@
 
 ####################   cadecay_destexhe.mod    ####################
 
+39c39
+< 	FARADAY = 96485.309		(coul)	: moles do not appear in units  : PG: using inbuilt NEURON value for FARADAY
+---
+> 	FARADAY = 96489		(coul)		: moles do not appear in units
 65c65
 <     SOLVE state METHOD cnexp : JB - WAS derivimplicit
 ---
@@ -10,34 +14,46 @@
 
 ####################   IT_huguenard.mod    ####################
 
-51d50
-< : JB - adding m to be consistent with h
-54d52
-<     m 
-70c68
-<     ica = gcabar * h * m * m * (v-carev) : JB - m was m_inf
+37,38c37,38
+< 	FARADAY = 96485.309 (coulomb)  : PG: using inbuilt NEURON value for FARADAY
+< 	R = 8.31441 (joule/degC)       : PG: using inbuilt NEURON value for R
+---
+> 	FARADAY = (faraday) (coulomb)
+> 	R = (k-mole) (joule/degC)
+52d51
+<     m
+69c68
+< 	ica = gcabar * m * m * h * (v-carev)
 ---
 > 	ica = gcabar * m_inf * m_inf * h * (v-carev)
-74d71
-< 
-78d74
-<     m' = (m_inf - m) / tau_m  : JB - added m' to be consistent with h'
-83a80
+80a80
 > 	h = 0
-90,94d86
+87,90d86
 < 
 <     evaluate_fct(v) : JB - added to compute h/m_inf values
 < 
 <     h = h_inf : JB - WAS 0
-<     m = m_inf : JB - added and made consistent with h
-113,114d104
-< 
-<     tau_m = 1.0 : JB - made tau_m explicit
+109,110d104
+<     
+<     m = m_inf
 
 
 ####################   IL_gutnick.mod    ####################
 
-118,121c118,119
+59,62d58
+<     
+<     
+<     : PG: NOTE: No READ cao, cai!!!
+<     
+64d59
+<     
+74,75c69,70
+< 	FARADAY = 96485.309 (coulomb)  : PG: using inbuilt NEURON value for FARADAY
+< 	R = 8.31441 (joule/degC)       : PG: using inbuilt NEURON value for R
+---
+> 	FARADAY = (faraday) (coulomb)
+> 	R = (k-mole) (joule/degC)
+123,126c118,119
 < 
 <     m = alpha_m / (alpha_m + beta_m) : JB - these two were commented out
 < 	h = alpha_h / (alpha_h + beta_h)
