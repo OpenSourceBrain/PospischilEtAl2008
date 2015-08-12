@@ -21,6 +21,12 @@ def parse_arguments():
                         help='Show plot of ca', 
                         default=False)
                         
+    parser.add_argument('-diameter',
+                        type=float,
+                        metavar='<diameter>',
+                        default=None,
+                        help='Diameter and Length of body segment')
+                        
     parser.add_argument('-duration', 
                         type=float,
                         metavar='<duration>',
@@ -68,7 +74,13 @@ def parse_arguments():
                         metavar='<gkbar_im>',
                         default=None,
                         help='Conductance density of im') 
-                        
+ 
+    parser.add_argument('-taumax_im',
+                     type=float,
+                     metavar='<taumax_im>',
+                     default=None,
+                     help='TauMAX of im')
+
     parser.add_argument('-e_pas', 
                         type=float,
                         metavar='<e_pas>',
@@ -110,7 +122,8 @@ def parse_arguments():
 
 def run_cell(cell, 
              nogui = False, 
-             showca = False, 
+             showca = False,
+             diameter = None,
              duration = 1000, 
              dt = 0.01, 
              idelay = 300, 
@@ -119,6 +132,7 @@ def run_cell(cell,
              gcabar_ical=None,
              gcabar_it=None,
              gkbar_im=None,
+             taumax_im=None,
              e_pas=None,
              g_pas=None,
              gnabar_hh2=None,
@@ -165,13 +179,19 @@ def run_cell(cell,
     else:
         print('Unknown cell type: %s'%cell)
         exit()
-        
+    
+    
+    if diameter is not None:
+        h('myCell.soma[0] { diam = %s } '%diameter)
+        h('myCell.soma[0] { L = %s } '%diameter)
     if gcabar_ical is not None:
         h('myCell.soma[0] { if (ismembrane("ical")) { gcabar_ical = %s } } '%gcabar_ical)
     if gcabar_it is not None:
         h('myCell.soma[0] { if (ismembrane("it")) { gcabar_it = %s } } '%gcabar_it)
     if gkbar_im is not None:
         h('myCell.soma[0] { if (ismembrane("im")) { gkbar_im = %s } } '%gkbar_im)
+    if taumax_im is not None:
+        h('myCell.soma[0] { if (ismembrane("im")) { taumax_im = %s } } '%taumax_im)
     if e_pas is not None:
         h('myCell.soma[0] { e_pas = %s } '%e_pas)
     if g_pas is not None:
@@ -292,7 +312,8 @@ def main(args=None):
 
     run_cell(args.cell, 
              args.nogui,
-             args.showca, 
+             args.showca,
+             args.diameter,
              args.duration, 
              args.dt, 
              args.idelay, 
@@ -300,7 +321,8 @@ def main(args=None):
              args.iamp, 
              args.gcabar_it, 
              args.gcabar_ical, 
-             args.gkbar_im, 
+             args.gkbar_im,
+             args.taumax_im,
              args.e_pas, 
              args.g_pas, 
              args.gnabar_hh2, 

@@ -1,0 +1,21 @@
+nrnpython("from run_cell import run_cell")
+
+nrnpython("run_cell('RS', \
+                    nogui       = False, \
+                    showca      = False, \
+                    diameter    = 61.8, \
+                    duration    = 3000, \
+                    dt          = 0.01, \
+                    idelay      = 600, \
+                    iduration   = 2000, \
+                    iamp        = 0.5, \
+                    gcabar_it   = None, \
+                    gcabar_ical = None, \
+                    gkbar_im    = 9.8e-5, \
+                    taumax_im   = 934, \
+                    e_pas       = -56.2, \
+                    g_pas       = 1.33e-5, \
+                    gnabar_hh2  = 0.01, \
+                    gkbar_hh2   = 0.0021, \
+                    vtraub_hh2  = -56.2, \
+                    v_init      = -65)")
