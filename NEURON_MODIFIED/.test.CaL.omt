@@ -5,6 +5,17 @@ target: "test_CaL_ModelDB.hoc"
 engine: NEURON
 mep: .test.CaL.mep
 experiments:
+  v:
+    observables:
+      spike times:
+        file: 
+          path: CaL_Only.v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 100
+        tolerance: 0
   one:
     observables:
       spike times:

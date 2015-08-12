@@ -227,6 +227,9 @@ def run_cell(cell,
     h(' v_vect.record(&myCell.soma[0].v(0.5)) ')
     h.v_vect.resize((h.tstop * h.steps_per_ms) + 1)
     
+    h('myCell.soma[0] { if (ismembrane("ical")) { is_ical = 1 } } ')
+    is_ical = h.is_ical == 1.0
+    
     if showca:
         h(' objectvar cai_vect ')
         h(' { cai_vect = new Vector() } ')
@@ -237,6 +240,17 @@ def run_cell(cell,
         h(' { eca_vect = new Vector() } ')
         h(' eca_vect.record(&myCell.soma[0].eca(0.5)) ')
         h.eca_vect.resize((h.tstop * h.steps_per_ms) + 1)
+        
+        h(' objectvar ica_vect ')
+        h(' { ica_vect = new Vector() } ')
+        h(' ica_vect.record(&myCell.soma[0].ica(0.5)) ')
+        h.ica_vect.resize((h.tstop * h.steps_per_ms) + 1)
+
+        if is_ical:
+            h(' objectvar carev_vect ')
+            h(' { carev_vect = new Vector() } ')
+            h(' carev_vect.record(&myCell.soma[0].carev_ical(0.5)) ')
+            h.carev_vect.resize((h.tstop * h.steps_per_ms) + 1)
     
     print("Running a simulation of %sms (dt = %sms)" % (h.tstop, h.dt))
 
@@ -257,6 +271,13 @@ def run_cell(cell,
 
         eca_file_name = '%s.eca.dat'%label.replace(' ', '_')
         save_vector(eca_file_name, h.eca_vect, h.v_time, 1000.0)
+
+        ica_file_name = '%s.ica.dat'%label.replace(' ', '_')
+        save_vector(ica_file_name, h.ica_vect, h.v_time, 1000.0)
+        
+        if is_ical:
+            carev_file_name = '%s.carev.dat'%label.replace(' ', '_')
+            save_vector(carev_file_name, h.carev_vect, h.v_time, 1000.0)
     
     
     if not nogui:
@@ -294,6 +315,27 @@ def run_cell(cell,
 
             pylab.plot(h.v_time, h.eca_vect, label='eca %s'%label)
             pylab.legend()
+            
+            fig = pylab.figure()
+            fig.canvas.set_window_title("Ca curent density of %s (%s)"%(cell, label))
+
+            pylab.xlabel('Time (ms)')
+            pylab.ylabel('Ca curent density (mA/cm2)')
+            pylab.grid('on')
+
+            pylab.plot(h.v_time, h.ica_vect, label='ica %s'%label)
+            pylab.legend()
+            
+            if is_ical:
+                fig = pylab.figure()
+                fig.canvas.set_window_title("carev of ical in %s (%s)"%(cell, label))
+
+                pylab.xlabel('Time (ms)')
+                pylab.ylabel('carev')
+                pylab.grid('on')
+
+                pylab.plot(h.v_time, h.carev_vect, label='carev %s'%label)
+                pylab.legend()
         
         pylab.show()
         
