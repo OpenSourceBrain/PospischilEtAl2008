@@ -41,7 +41,7 @@
 
                 <channelDensity condDensity="0.03 mS_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>
 
-                <channelDensityNernst condDensity="2.2e-4 S_per_cm2" id="IL_all" ionChannel="IL" ion="ca" />
+                <channelDensity condDensity="2.2e-4 S_per_cm2" id="IL_all" ionChannel="IL" ion="ca" erev="120.2547 mV" />
                     
                 <spikeThresh value="0 mV"/>
                 
