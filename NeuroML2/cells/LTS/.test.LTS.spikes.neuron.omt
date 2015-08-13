@@ -15,4 +15,15 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.0498
+        tolerance: 0.00299
+  ca spikes:
+    observables:
+      spike times:
+        file: 
+          path: LTS.cai.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0.0009
+        tolerance: 0.000433
