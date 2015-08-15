@@ -14,8 +14,6 @@
         <Parameter name="depth" dimension="length"/>
         
         <Constant name="FARADAY" dimension="charge_per_mole" value="96485.3 C_per_mol"/>
-        <Constant name="AREA_SCALE" dimension="area" value="1cm2"/>
-        <Constant name="LENGTH_SCALE" dimension="length" value="1m"/>
         
         <Requirement name="iCa" dimension="current"/>
         <Requirement name="surfaceArea" dimension="area"/>

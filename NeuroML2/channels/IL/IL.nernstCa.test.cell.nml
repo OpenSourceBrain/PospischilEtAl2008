@@ -33,7 +33,9 @@
             
             <membraneProperties>
                 
-                <channelDensityNernst condDensity="2.2e-4 S_per_cm2" id="IL_all" ionChannel="IL" ion="ca" />
+                <channelDensity condDensity="1e-5 S_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-85.0 mV" ion="non_specific"/>
+
+                <channelDensityNernst condDensity="1.7e-4 S_per_cm2" id="IL_all" ionChannel="IL" ion="ca" />
                 
                 <spikeThresh value="0 mV"/>
                 

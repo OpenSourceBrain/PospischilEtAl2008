@@ -4,3 +4,6 @@ experiments:
   spikes:
     expected:
       spike times: [431.422, 445.188, 517.236, 720.421]
+  ca spikes:
+    expected:
+      spike times: [430.314, 443.501]

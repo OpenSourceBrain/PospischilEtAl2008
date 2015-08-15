@@ -41,7 +41,7 @@
 
                 <channelDensity condDensity="3e-5 S_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>
 
-                <channelDensity condDensity="4e-4 S_per_cm2" id="IT_all" ionChannel="IT" ion="ca" erev="120 mV"/>
+                <channelDensityNernst condDensity="4e-4 S_per_cm2" id="IT_all" ionChannel="IT" ion="ca"/>
                     
                 <spikeThresh value="0 mV"/>
                 
@@ -53,7 +53,7 @@
             
             <intracellularProperties>
                 
-<!--                <species id="ca" ion="ca" concentrationModel="CaPoolModel" initialConcentration="2.4e-4 mM" initialExtConcentration="2.0 mM" />-->
+                <species id="ca" ion="ca" concentrationModel="CaPoolModel" initialConcentration="2.4e-4 mM" initialExtConcentration="2.0 mM" />
 
                 <resistivity value="100 ohm_cm"/>
                 

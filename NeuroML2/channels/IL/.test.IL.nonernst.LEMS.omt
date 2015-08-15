@@ -3,60 +3,49 @@
 
 target: "LEMS_IL.nonernst.xml"
 engine: jNeuroML
-mep: .test.IL.nonernst.mep
+mep: ../../../NEURON_MODIFIED/.test.CaL.mep
 experiments:
+  v:
+    observables:
+      spike times:
+        file: 
+          path: IL.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 100
+        tolerance: 0.000069
   one:
     observables:
       spike times:
         file: 
-          path: IBR.dat
+          path: IL.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: -60
-        tolerance: 6.75e-5
+          threshold: 0.00026
+        tolerance: 5.04e-05
   two:
     observables:
       spike times:
         file: 
-          path: IBR.dat
+          path: IL.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 0
-        tolerance: 6.75e-5
+          threshold: 0.001
+        tolerance: 0.0001693
   three:
     observables:
       spike times:
         file: 
-          path: IBR.dat
+          path: IL.cai.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 150
-        tolerance: 6.75e-5
-  four:
-    observables:
-      spike times:
-        file: 
-          path: IBR.dat
-          columns: [0,1]
-          scaling: [1000, 1000]
-        spike detection: 
-          method: threshold
-          threshold: 300
-        tolerance: 6.75e-5
-  five:
-    observables:
-      spike times:
-        file: 
-          path: IBR.dat
-          columns: [0,1]
-          scaling: [1000, 1000]
-        spike detection: 
-          method: threshold
-          threshold: 700
-        tolerance: 6.75e-5
+          threshold: 0.002
+        tolerance: 0.000193
