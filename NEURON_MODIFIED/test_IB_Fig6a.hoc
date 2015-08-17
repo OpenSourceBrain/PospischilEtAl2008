@@ -1,0 +1,20 @@
+nrnpython("from run_cell import run_cell")
+
+nrnpython("run_cell('IB', \
+                    nogui        = False, \
+                    diameter     = 96, \
+                    showca       = False, \
+                    duration     = 1600, \
+                    dt           = 0.01, \
+                    idelay       = 200, \
+                    iduration    = 1200, \
+                    iamp         = 0.6, \
+                    gcabar_ical  = 0.00012, \
+	                gkbar_im     = 4.2e-5, \
+                    taumax_im    = 1000, \
+                    e_pas        = -75, \
+                    g_pas        = 1e-4, \
+	                gnabar_hh2   = 0.05, \
+	                gkbar_hh2    = 0.0042, \
+                    vtraub_hh2   = -58, \
+                    v_init       = -65)")
