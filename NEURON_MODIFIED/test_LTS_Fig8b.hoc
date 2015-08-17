@@ -1,0 +1,18 @@
+nrnpython("from run_cell import run_cell")
+
+nrnpython("run_cell('LTS', \
+                    nogui        = False, \
+                    diameter     = 96, \
+                    showca       = False, \
+                    duration     = 2000, \
+                    dt           = 0.01, \
+                    idelay       = 500, \
+                    iduration    = 1000, \
+                    iamp         = 0.2, \
+                    gcabar_ical  = 0.0004, \
+	                gkbar_im     = 3e-5, \
+                    e_pas        = -85, \
+                    g_pas        = 1e-5, \
+	                gnabar_hh2   = 0.05, \
+	                gkbar_hh2    = 0.005, \
+                    v_init       = -70)")
