@@ -56,12 +56,25 @@ def parse_arguments():
                         metavar='<current clamp amplitude>',
                         default=0.75,
                         help='Current clamp amplitude, in nA') 
-                        
+   
+    parser.add_argument('-iampbackground',
+                       type=float,
+                       metavar='<current clamp background amplitude>',
+                       default=0,
+                       help='Current clamp background amplitude, in nA')
+       
+       
     parser.add_argument('-gcabar_it', 
                         type=float,
                         metavar='<gcabar_it>',
                         default=None,
-                        help='Conductance density of it') 
+                        help='Conductance density of it')
+                        
+    parser.add_argument('-shift_it',
+                        type=float,
+                        metavar='<shift_it>',
+                        default=None,
+                        help='Vx parameter of it')
                         
     parser.add_argument('-gcabar_ical', 
                         type=float,
@@ -129,8 +142,10 @@ def run_cell(cell,
              idelay = 300, 
              iduration = 400, 
              iamp = 0.75,
+             iampbackground = 0,
              gcabar_ical=None,
              gcabar_it=None,
+             shift_it=None,
              gkbar_im=None,
              taumax_im=None,
              e_pas=None,
@@ -188,6 +203,8 @@ def run_cell(cell,
         h('myCell.soma[0] { if (ismembrane("ical")) { gcabar_ical = %s } } '%gcabar_ical)
     if gcabar_it is not None:
         h('myCell.soma[0] { if (ismembrane("it")) { gcabar_it = %s } } '%gcabar_it)
+    if shift_it is not None:
+        h('myCell.soma[0] { if (ismembrane("it")) { shift_it = %s } } '%shift_it)
     if gkbar_im is not None:
         h('myCell.soma[0] { if (ismembrane("im")) { gkbar_im = %s } } '%gkbar_im)
     if taumax_im is not None:
@@ -205,7 +222,11 @@ def run_cell(cell,
     if v_init is not None:
         h('v_init = %s '%v_init)
         
-    
+    h("objectvar InputBG")
+    h("myCell.soma[0] { InputBG = new IClamp(0.5) } ")
+    h("{ InputBG.del = 0 } ")
+    h("{ InputBG.dur = %s } "%duration)
+    h("{ InputBG.amp = %s } "%iampbackground)
 
     h("objectvar Input")
     h("myCell.soma[0] { Input = new IClamp(0.5) } ")
@@ -360,8 +381,10 @@ def main(args=None):
              args.dt, 
              args.idelay, 
              args.iduration, 
-             args.iamp, 
-             args.gcabar_it, 
+             args.iamp,
+             args.iampbackground,
+             args.gcabar_it,
+             args.shift_it,
              args.gcabar_ical, 
              args.gkbar_im,
              args.taumax_im,
