@@ -20,80 +20,57 @@ TITLE Cortical M current
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
-    SUFFIX im
-    USEION k READ ek WRITE ik
-    RANGE gkbar, m_inf, tau_m
-    GLOBAL taumax
+	SUFFIX im
+	USEION k READ ek WRITE ik
+    RANGE gkbar, pinf, tp, taumax
 
 }
 
 UNITS {
-    (mA) = (milliamp)
-    (mV) = (millivolt)
+	(mA) = (milliamp)
+	(mV) = (millivolt)
 }
 
 
 PARAMETER {
-    v		        (mV)
-    celsius = 36    (degC)
-    ek		        (mV)
-    gkbar	= 1e-6	(mho/cm2)
-    taumax	= 1000	(ms)		: peak value of tau
+	v		(mV)
+	celsius = 36    (degC)
+	ek		(mV)
+	gkbar	= 1e-6	(mho/cm2)
+	taumax	= 1000	(ms)		: peak value of tau
 }
 
 
 
 STATE {
-    m
+	p m
 }
 
 ASSIGNED {
-    ik	      (mA/cm2)
-    m_inf
-    tau_m	  (ms)
-    tau_peak  (ms)
-    tadj
+	ik	(mA/cm2)
+	pinf
+	tp	(ms)
 }
 
 BREAKPOINT {
-    SOLVE states METHOD cnexp
-    ik = gkbar * m * (v - ek)
+	SOLVE states METHOD cnexp
+	ik = gkbar * p * (v - ek)
+    m = p
 }
 
-DERIVATIVE states { 
-    evaluate_fct(v)
+DERIVATIVE states {
 
-    m' = (m_inf - m) / tau_m
+	evaluate_fct(v)
+
+	p'=(pinf-p)/tp
 }
 
 UNITSOFF
-INITIAL {
-
-:
-:  The Q10 value is assumed to be 2.3
-:
-    tadj = 2.3 ^ ((celsius-36)/10)
-    tau_peak = taumax / tadj
-    evaluate_fct(v) : JB - moved here from first line
-                    : as tau_peak is used in evaluate_fct
-
-    m = m_inf : JB - this was 0
-}
-
 PROCEDURE evaluate_fct(v(mV)) {
 
-    m_inf = 1 / ( 1 + exptable(-(v+35)/10) )
-    tau_m = tau_peak / ( 3.3 * exptable((v+35)/20) + exptable(-(v+35)/20) )
+    pinf=1/(1+exp(-(v+35)/10))
+    tp=taumax/(3.3*exp((v+35)/20)+exp(-(v+35)/20))
+
 }
 UNITSON
 
-
-FUNCTION exptable(x) { 
-    TABLE  FROM -25 TO 25 WITH 10000
-
-    if ((x > -25) && (x < 25)) {
-        exptable = exp(x)
-    } else {
-        exptable = 0.
-    }
-}
