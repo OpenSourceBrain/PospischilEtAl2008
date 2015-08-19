@@ -1,0 +1,69 @@
+# Pospischil, et. al. Regular Spiking (RS) cell model
+
+par Cap=2.9
+
+par Eleak=-70
+par Ena=50
+par Ek=-90
+par Vt=-63
+
+par gleak=0.4
+par gna=50
+par gkd=5
+par gm=0.07
+
+par tmax=4000
+
+par Idelay=200
+par Iduration=500
+par I=5
+
+# initial conditions
+init V=-65
+
+# Current balance
+V'=(-Ileak-INa-IKd-Im+Iinput)/Cap
+
+# Input current
+Iinput=if(t>=Idelay)then(if(t<=(Idelay+Iduration))then(I)else(0))else(0)
+
+# Leak current
+Ileak=gleak*(V-Eleak)
+
+# Na current
+INa=gna*m*m*m*h*(V-Ena)
+
+m'=am*(1-m)-bm*m
+h'=ah*(1-h)-bh*h
+
+am=(-0.32*(V-Vt-13))/(exp(-(V-Vt-13)/4)-1)
+bm=(0.28*(V-Vt-40))/(exp((V-Vt-40)/5)-1)
+ah=0.128*exp(-(V-Vt-17)/18)
+bh=(4)/(1+exp(-(V-Vt-40)/5))
+
+# Kd current
+IKd=gkd*n*n*n*n*(V-Ek)
+
+n'=an*(1-n)-bn*n
+
+an=(-0.032*(V-Vt-15))/(exp(-(V-Vt-15)/5)-1)
+bn=0.5*exp(-(V-Vt-10)/40)
+
+# Km current
+Im=gm*p*(V-Ek)
+
+p'=(pinf-p)/tp
+
+pinf=1/(1+exp(-(V+35)/10))
+tp=tmax/(3.3*exp((V+35)/20)+exp(-(V+35)/20))
+
+# integrator params
+@ maxstor=80000,total=1000,bound=10000,xlo=0,xhi=1000,ylo=-75,yhi=40
+@ meth=cvode,atol=0.0001,toler=0.0001,dt=0.3
+done
+
+
+
+
+
+
