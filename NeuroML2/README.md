@@ -4,4 +4,4 @@ This folder contains the NeuroML2 versions of the models. The folders contain th
 - channels: All the ion channels used by the 5 cells
 - figures: Figures from the paper that have been reproduced
 
-To run any of these models, find the LEMS_XYZ.xml files and run them via `jnml LEMS_XYZ.xml`. See [Installation Instructions](..) for more details.
+To run any of these models, find the LEMS_XYZ.xml files and run them via `jnml LEMS_XYZ.xml`. See [Installation Instructions](https://github.com/OpenSourceBrain/PospischilEtAl2008) for more details.
