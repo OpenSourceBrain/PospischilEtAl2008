@@ -1,5 +1,7 @@
 # Pospischil, et. al. Regular Spiking (RS) cell model
 # Figure 1c
+# Parameters that have been found to best reproduce the published figure
+# *** indicates discovered parameter
 
 # ---- PARAMETERS ---- #
 
@@ -23,7 +25,7 @@ par Ek=-100
 # ??? Not in paper or figure
 # -63mV in NEURON mod file
 # -55mV in NEURON hoc file
-# -68.6mV best fit to figure
+# -68.6mV best fit to figure ***
 par Vt=-68.6
 
 # 1e-4  S/cm2 in figure & NEURON
@@ -50,12 +52,12 @@ par Iduration=500
 
 # 0.5nA in figure
 # 0.75nA in NEURON hoc
-# 1.87 best fit to figure
+# 1.87 best fit to figure ***
 par I=1.87
 
 # No DC current in paper or NEURON
 # Figure starts and stays at -65mV
-# DC current of 1.12 needed to keep at -65mV
+# DC current of 1.12 needed to keep at -65mV ***
 par Idc=1.12
 
 # initial conditions
