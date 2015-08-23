@@ -72,10 +72,7 @@ The Regular Spiking (RS) cell was also implemented in [XPP simulator](http://www
 
 ### Installation Instructions
 
-1. [Download the Model Files](archive/master.zip), or clone the repository using git:
-
-git clone https://github.com/OpenSourceBrain/PospischilEtAl2008.git
-
+1. [Download the Model Files](archive/master.zip), or clone the repository using git: `git clone https://github.com/OpenSourceBrain/PospischilEtAl2008.git`
 2. [Follow instructions to Install jNeuroML](https://github.com/NeuroML/jNeuroML) for the **jnml** executable. On Windows, you may also need [SVN](https://subversion.apache.org/packages.html#windows). Alternatively install [PyNeuroML](https://github.com/NeuroML/pyNeuroML) for the **pynml** executable. 
 3. Set the $PATH and $JNML_HOME variables as described in [#2](https://github.com/NeuroML/jNeuroML)
 4. Extract the model files to a folder.
