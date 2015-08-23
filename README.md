@@ -53,7 +53,7 @@ Similarly, using the calcium-dependent I<sub>T</sub> current instead of I<sub>L<
 
 ![Rebound](Rebound.png)
 
-Figure produced with NEURON_ORIG LTS Cell with gcabar_it = 0.0012 and input current -0.1 amp 
+Figure produced with NEURON_ORIG LTS Cell with gcabar_it = 0.0012 and input current = -0.1 
 
 ### Model Versions
 
