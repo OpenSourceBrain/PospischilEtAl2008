@@ -20,8 +20,9 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	RANGE gnabar, gkbar, vtraub
-	RANGE alpha_m, alpha_h, alpha_n
-    RANGE beta_m, beta_h, beta_n
+	RANGE m_inf, h_inf, n_inf
+	RANGE tau_m, tau_h, tau_n
+	RANGE m_exp, h_exp, n_exp
 }
 
 
@@ -39,7 +40,7 @@ PARAMETER {
 	celsius = 36    (degC)
 	dt              (ms)
 	v               (mV)
-	vtraub  = -63   (mV)   : PG changed this from -63 to -55, as this is value for vtraub is used in all ModelDB examples
+	vtraub  = -55   (mV)   : PG changed this from -63 to -55, as this is value for vtraub is used in all ModelDB examples
 }
 
 STATE {
@@ -49,46 +50,101 @@ STATE {
 ASSIGNED {
 	ina     (mA/cm2)
 	ik      (mA/cm2)
-    alpha_m
-    alpha_h
-    alpha_n
-    beta_m
-    beta_h
-    beta_n
+	il      (mA/cm2)
+	m_inf
+	h_inf
+	n_inf
+	tau_m
+	tau_h
+	tau_n
+	m_exp
+	h_exp
+	n_exp
+	tadj
 }
 
 
 BREAKPOINT {
-
-    SOLVE states
-
+	SOLVE states
 	ina = gnabar * m*m*m*h * (v - ena)
 	ik  = gkbar * n*n*n*n * (v - ek)
 }
 
 
-DERIVATIVE states {   : exact Hodgkin-Huxley equations
+:DERIVATIVE states {   : exact Hodgkin-Huxley equations
+:       evaluate_fct(v)
+:       m' = (m_inf - m) / tau_m
+:       h' = (h_inf - h) / tau_h
+:       n' = (n_inf - n) / tau_n
+:}
 
-       evaluate_fct(v)
-
-       m' = alpha_m*(1-m)-beta_m*m
-       h' = alpha_h*(1-h)-beta_h*h
-       n' = alpha_n*(1-n)-beta_n*n
-
+PROCEDURE states() {    : exact when v held constant
+	evaluate_fct(v)
+	m = m + m_exp * (m_inf - m)
+	h = h + h_exp * (h_inf - h)
+	n = n + n_exp * (n_inf - n)
+	VERBATIM
+	return 0;
+	ENDVERBATIM
 }
 
 UNITSOFF
-PROCEDURE evaluate_fct(v(mV)) { LOCAL vt
+INITIAL {
 
-    vt = vtraub
+    tadj = 3.0 ^ ((celsius-36)/ 10 ) : JB - was the last line, moved
+                                     : to top as value used in evaluate_fct
 
-    alpha_m = (-0.32*(v-vt-13))/(exp(-(v-vt-13)/4)-1)
-    beta_m = (0.28*(v-vt-40))/(exp((v-vt-40)/5)-1)
+    evaluate_fct(v)  : JB - Added here, to compute x_inf vars
 
-    alpha_h = 0.128*exp(-(v-vt-17)/18)
-    beta_h = 4/(1+exp(-(v-vt-40)/5))
+	m = m_inf  : JB - These were all 0
+	h = h_inf
+	n = n_inf
+:
+:  Q10 was assumed to be 3 for both currents
+:
+: original measurements at roomtemperature?
 
-    alpha_n = (-0.032*(v-vt-15))/(exp(-(v-vt-15)/5)-1)
-    beta_n = 0.5*exp(-(v-vt-10)/40)
 
 }
+
+PROCEDURE evaluate_fct(v(mV)) { LOCAL a,b,v2
+
+	v2 = v - vtraub : convert to traub convention
+
+:       a = 0.32 * (13-v2) / ( Exp((13-v2)/4) - 1)
+	a = 0.32 * vtrap(13-v2, 4)
+:       b = 0.28 * (v2-40) / ( Exp((v2-40)/5) - 1)
+	b = 0.28 * vtrap(v2-40, 5)
+	tau_m = 1 / (a + b) / tadj
+	m_inf = a / (a + b)
+
+	a = 0.128 * Exp((17-v2)/18)
+	b = 4 / ( 1 + Exp((40-v2)/5) )
+	tau_h = 1 / (a + b) / tadj
+	h_inf = a / (a + b)
+
+:       a = 0.032 * (15-v2) / ( Exp((15-v2)/5) - 1)
+	a = 0.032 * vtrap(15-v2, 5)
+	b = 0.5 * Exp((10-v2)/40)
+	tau_n = 1 / (a + b) / tadj
+	n_inf = a / (a + b)
+
+	m_exp = 1 - Exp(-dt/tau_m)
+	h_exp = 1 - Exp(-dt/tau_h)
+	n_exp = 1 - Exp(-dt/tau_n)
+}
+FUNCTION vtrap(x,y) {
+    if (fabs(x/y) < 1e-6) {
+		vtrap = y*(1 - x/y/2)
+	}else{
+		vtrap = x/(Exp(x/y)-1)
+	}
+}
+
+FUNCTION Exp(x) {
+	if (x < -100) {
+		Exp = 0
+	}else{
+		Exp = exp(x)
+	}
+} 
