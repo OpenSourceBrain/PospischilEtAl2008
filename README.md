@@ -4,7 +4,7 @@
 
 #### Overview of the Model
 
-[Pospischil, et. al. (2008)](http://link.springer.com/article/10.1007/s00422-008-0263-8) contains conductance-based ([Hodgin-Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model)) models for four different classes of [cortical](https://en.wikipedia.org/wiki/Cerebral_cortex) and [thalamic](https://en.wikipedia.org/wiki/Thalamus) neurons. The classes represented are:
+[Pospischil, et. al. (2008)](http://link.springer.com/article/10.1007/s00422-008-0263-8) describes conductance-based ([Hodgin-Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model)) models of four different classes of [cortical](https://en.wikipedia.org/wiki/Cerebral_cortex) and [thalamic](https://en.wikipedia.org/wiki/Thalamus) neurons. The classes represented are:
 
 - Regular Spiking (RS) cells
 - Fast Spiking (FS) cells
@@ -34,19 +34,24 @@ Specifically, these models demonstrate the following properties:
 **Regular Spiking**
 The use of I<sub>Na</sub> and I<sub>Kd</sub> currents and applying a constant input current is sufficient to generate a train of spikes with constant frequency. 
 
-
+![RS](Regular Spiking.png)
 
 **Frequency Adaptation**
 In addition to I<sub>Na</sub> and I<sub>Kd</sub> currents, including the I<sub>M</sub> current will result in a train of spikes where the inter-spike interval increases (and frequency decreases) with each spike in the train.
+
+![FA](Frequency adaptation.png)
 
 **Intrinsic Bursting**
 
 When a calcium-dependent I<sub>L</sub> current is added to a cell with I<sub>Na</sub>, I<sub>Kd</sub>, and I<sub>M</sub> currents, the cell membrane potential will display an initial high-frequency burst of spikes and then settle onto a regular, frequency-adapting spiking behavior. The I<sub>L</sub> current makes use of variable Ca<sup>2+</sup> reversal potential which is computed from the [Nernst equation](https://en.wikipedia.org/wiki/Nernst_equation) by tracking changes in the intracellular Ca<sup>2+</sup> concentration.
 
+![IB](Intrinsic bursting.png)
+
 **Rebound Bursting**
 
 Similarly, using the calcium-dependent I<sub>T</sub> current instead of I<sub>L</sub> results in a cell that will fire a series of high-frequency spikes after a negative (hyperpolarizing) current is withdrawn from cell. 
 
+![Rebound](Rebound.png)
 
 Figure produced with NEURON_ORIG LTS Cell with gcabar_it = 0.0012 and input current -0.1 amp 
 
@@ -81,6 +86,6 @@ git clone https://github.com/OpenSourceBrain/PospischilEtAl2008.git
 
 ### Issues
 
-See Issues Tab for reported issues with the original model and the conversion. 
+See [Issues Tab](issues) for reported issues with the original model and the conversion. 
 
 
