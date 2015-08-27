@@ -8,4 +8,4 @@ pynml-channelanalysis Na/Na.channel.nml \
                       IM/IM.channel.nml \
                       IL/IL.channel.nml \
                       Kd/Kd.channel.nml \
-                      -caConc 4.3e-4 -temperature 36 -html
+                      -caConc 4.3e-4 -temperature 36 -html -md
