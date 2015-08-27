@@ -7,7 +7,7 @@
     <include href="../../channels/IM/IM.channel.nml"/>
     <include href="../../channels/Leak/Leak.channel.nml"/>
     <include href="../../channels/Na/Na.channel.nml"/>
-    <include href="RS_ModelDB.cell.nml"/>
+    <include href="../../cells/RS/RS.cell.nml"/>
 
     <pulseGenerator id="Input_1" delay="0.2s" duration="490 ms" amplitude="0.84 nA"/>
 
