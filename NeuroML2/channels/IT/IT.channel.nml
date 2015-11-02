@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="IT">
 
-    <notes>ChannelML file containing a single Channel description</notes>
+    <notes>NeuroML file containing a single Channel description</notes>
 
     <ionChannel id="IT" conductance="0 pS" type="ionChannelHH" species="ca">
 
-        <notes>ChannelML file containing a single Channel description</notes>
+        <notes>Low threshold calcium current
+            
+Comment from original mod file:
+Ca++ current responsible for low threshold spikes (LTS)
+THALAMOCORTICAL CELLS
+Differential equations
+
+Model based on the data of Huguenard and McCormick, J Neurophysiol
+68: 1373-1383, 1992 and Huguenard and Prince, J Neurosci.
+12: 3804-3817, 1992.
+
+Features:
+
+	- kinetics described by Nernst equations using a m2h format
+	- activation considered at steady-state
+	- inactivation fit to Huguenard's data using a bi-exp function
+	- shift for screening charge, q10 of inactivation of 3
+
+
+Written by Alain Destexhe, Salk Institute, 1993; modified 1995</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -13,8 +32,8 @@
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
-                            <rdf:li>....</rdf:li>
-                            <rdf:li rdf:resource="..."/>
+                            <rdf:li>Minimal Hodgkin-Huxley type models for different classes of cortical and thalamic neurons</rdf:li>
+                            <rdf:li rdf:resource="19011929"/>
                         </rdf:Bag>
                     </bqmodel:isDescribedBy>
 
@@ -22,7 +41,7 @@
                     <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
                         <rdf:Bag>
                             <rdf:li>K channels</rdf:li>
-                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3"/>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/NeuronDB/channelGene2.aspx#table1"/>
                         </rdf:Bag>
                     </bqbiol:isVersionOf>
 

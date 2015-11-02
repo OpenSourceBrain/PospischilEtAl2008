@@ -36,7 +36,7 @@ Written by Alain Destexhe, Laval University, 1995
                     <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
                         <rdf:Bag>
                             <rdf:li>K channels</rdf:li>
-                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3"/>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/NeuronDB/channelGene2.aspx#table3"/>
                         </rdf:Bag>
                     </bqbiol:isVersionOf>
 

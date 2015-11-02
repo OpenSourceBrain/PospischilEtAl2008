@@ -33,7 +33,7 @@ Equations modified by Traub, for Hippocampal Pyramidal cells, in: Traub and Mile
                     <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
                         <rdf:Bag>
                             <rdf:li>Na channels</rdf:li>
-                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table2"/>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/NeuronDB/channelGene2.aspx#table2"/>
                         </rdf:Bag>
                     </bqbiol:isVersionOf>
 
