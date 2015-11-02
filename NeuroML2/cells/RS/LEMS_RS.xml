@@ -24,8 +24,15 @@
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
         
-        <Display id="CG_RS_ModelDB_v" title="PospischilEtAl2008: Default Simulation Configuration, CG_RS_ModelDB, VOLTAGE" xmin="-100" xmax="1100" ymin="-100" ymax="70" timeScale="1ms">
+        <Display id="CG_RS_v" title="PospischilEtAl2008: VOLTAGE" xmin="-100" xmax="1100" ymin="-100" ymax="70" timeScale="1ms">
             <Line id="v" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/v" scale="1 mV" color="#000000"/>
+        </Display>
+        
+        <Display id="CG_RS_ModelDB_v" title="PospischilEtAl2008: channel variables" xmin="-100" xmax="1100" ymin="-.1" ymax="1.1" timeScale="1ms">
+            <Line id="Na m" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
+            <Line id="Na h" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
+            <Line id="Kd n" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
+            <Line id="IM p" timeScale="1 ms" quantity="CG_RS_ModelDB/0/RS_ModelDB/biophys/membraneProperties/IM_all/IM/p/q" scale="1" color="#0000FF"/>
         </Display>
         
         <OutputFile id="CG_RS_ModelDB_v_0_0_OF" fileName="RS.dat">
