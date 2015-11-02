@@ -5,6 +5,7 @@
 /NeuroML2/cells/RS/RS.datnrn
 LEMS_Test_*.xml
 *.dat
+*.svg
 *.dat*.lems
 *.dat.nrn
 *.dat0*
