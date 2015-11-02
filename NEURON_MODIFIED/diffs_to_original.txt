@@ -65,6 +65,12 @@
 
 ####################   IM_cortex.mod    ####################
 
+25,26c25,26
+<     RANGE gkbar, m_inf, tau_m
+<     GLOBAL taumax
+---
+>     RANGE gkbar, m_inf, tau_m, taumax
+> :GLOBAL taumax
 71c71,72
 < 
 ---

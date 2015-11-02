@@ -28,6 +28,12 @@
             <Line id="v" timeScale="1 ms" quantity="CG_FS_ModelDB/0/FS_ModelDB/v" scale="1 mV" color="#000000"/>
         </Display>
         
+        <Display id="rates" title="PospischilEtAl2008: channel variables" xmin="-100" xmax="1100" ymin="-.1" ymax="1.1" timeScale="1ms">
+            <Line id="Na m" timeScale="1 ms" quantity="CG_FS_ModelDB/0/FS_ModelDB/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
+            <Line id="Na h" timeScale="1 ms" quantity="CG_FS_ModelDB/0/FS_ModelDB/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
+            <Line id="Kd n" timeScale="1 ms" quantity="CG_FS_ModelDB/0/FS_ModelDB/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
+         </Display>
+        
         <OutputFile id="CG_FS_ModelDB_v_0_0_OF" fileName="FS.dat">
             <OutputColumn id="v" quantity="CG_FS_ModelDB/0/FS_ModelDB/v"/>
         </OutputFile>

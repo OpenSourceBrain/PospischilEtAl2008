@@ -5,18 +5,32 @@
     xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.0/Level2/ChannelML_v1.8.0.xsd"
     units="Physiological Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    <meta:notes>NeuroML file containing a single Channel description</meta:notes>
 
     <channel_type name="Km_CML">
 
-        <status value="in_progress">
-            <meta:comment>...</meta:comment>
+        <status value="stable">
+            <meta:comment>Validated against mod file in https://github.com/OpenSourceBrain/PospischilEtAl2008/blob/master/NEURON_MODIFIED</meta:comment>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>
 
-        <meta:notes>...</meta:notes>
+        <meta:notes>Slow M-type K+ current for spike frequency adaptation
+            
+Comment from original mod file:
+M-current, responsible for the adaptation of firing rate and the afterhyperpolarization (AHP) of cortical pyramidal cells
+First-order model described by hodgkin-Hyxley like equations.
+K+ current, activated by depolarization, noninactivating.
+
+Model taken from Yamada, W.M., Koch, C. and Adams, P.R.  Multiple channels and calcium dynamics.  In: Methods in Neuronal Modeling, 
+edited by C. Koch and I. Segev, MIT press, 1989, p 97-134.
+    
+See also: McCormick, D.A., Wang, Z. and Huguenard, J. Neurotransmitter control of neocortical neuronal activity and excitability. 
+Cerebral Cortex 3: 387-398, 1993.
+
+Written by Alain Destexhe, Laval University, 1995
+        </meta:notes>
         
         <meta:authorList>
             <meta:modelTranslator>
