@@ -3,10 +3,10 @@ system: Expected voltage times for Na channel
 experiments:
   one:
     expected:
-      spike times: [305.78]
+      spike times: [305.79]
   two:
     expected:
-      spike times: [309.93]
+      spike times: [309.94]
   three:
     expected:
-      spike times: [699.23]
+      spike times: [699.25]
