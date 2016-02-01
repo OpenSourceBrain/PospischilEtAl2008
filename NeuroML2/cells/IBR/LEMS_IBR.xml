@@ -26,29 +26,29 @@
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.0005ms" target="network_PospischilEtAl2008">
 
-        <Display id="CG_IBR_ModelDB_test" title="PospischilEtAl2008: IBR" xmin="-50" xmax="1050" ymin="-100" ymax="70" timeScale="1ms">
-            <Line id="v" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v" scale="1 mV" color="#000000"/>
+        <Display id="CG_IBR_test" title="PospischilEtAl2008: IBR" xmin="-50" xmax="1050" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_IBR/0/IBR/v" scale="1 mV" color="#000000"/>
         </Display>
         
         <Display id="caConc" title="PospischilEtAl2008: [Ca2+]" xmin="0" xmax="1000" ymin="0" ymax="1e-3" timeScale="1ms">
-            <Line id="caConc" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/caConc" scale="1 mM" color="#000000"/>
+            <Line id="caConc" timeScale="1 ms" quantity="CG_IBR/0/IBR/caConc" scale="1 mM" color="#000000"/>
         </Display>
         
         <Display id="rates" title="PospischilEtAl2008: channel variables" xmin="-100" xmax="1100" ymin="-.1" ymax="1.1" timeScale="1ms">
-            <Line id="Na m" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
-            <Line id="Na h" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
-            <Line id="Kd n" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
-            <Line id="IM p" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/IM_all/IM/p/q" scale="1" color="#0000FF"/>
-            <Line id="IL q" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/IL_all/IL/q/q" scale="1" color="#FF00FF"/>
-            <Line id="IL r" timeScale="1 ms" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/biophys/membraneProperties/IL_all/IL/r/q" scale="1" color="#00FFFF"/>
+            <Line id="Na m" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
+            <Line id="Na h" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
+            <Line id="Kd n" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
+            <Line id="IM p" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/IM_all/IM/p/q" scale="1" color="#0000FF"/>
+            <Line id="IL q" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/IL_all/IL/q/q" scale="1" color="#FF00FF"/>
+            <Line id="IL r" timeScale="1 ms" quantity="CG_IBR/0/IBR/biophys/membraneProperties/IL_all/IL/r/q" scale="1" color="#00FFFF"/>
         </Display>
 
-        <OutputFile id="CG_IBR_ModelDB_v_0_0_OF" fileName="IBR.dat">
-            <OutputColumn id="v" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/v"/>
+        <OutputFile id="CG_IBR_v_0_0_OF" fileName="IBR.dat">
+            <OutputColumn id="v" quantity="CG_IBR/0/IBR/v"/>
         </OutputFile>
         
         <OutputFile id="f_cai" fileName="IBR.cai.dat">
-            <OutputColumn id="cai" quantity="CG_IBR_ModelDB/0/IBR_ModelDB/caConc"/>
+            <OutputColumn id="cai" quantity="CG_IBR/0/IBR/caConc"/>
         </OutputFile>
         
     </Component>

@@ -26,37 +26,37 @@
     
     <Component type="Simulation" id="sim1" length="1000.0ms" step="0.001ms" target="network_PospischilEtAl2008">
 
-        <Display id="CG_LTS_ModelDB_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS_ModelDB, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
-            <Line id="v" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v" scale="1 mV" color="#000000"/>
+        <Display id="CG_LTS_test" title="PospischilEtAl2008: Default Simulation Configuration, CG_LTS, VOLTAGE" xmin="0" xmax="1000" ymin="-100" ymax="70" timeScale="1ms">
+            <Line id="v" timeScale="1 ms" quantity="CG_LTS/0/LTS/v" scale="1 mV" color="#000000"/>
         </Display>
     
         <Display id="caConcg" title="PospischilEtAl2008: [Ca2+]" xmin="0" xmax="1000" ymin="0" ymax="1e-3" timeScale="1ms">
-            <Line id="caConc" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/caConc" scale="1 mM" color="#000000"/>
+            <Line id="caConc" timeScale="1 ms" quantity="CG_LTS/0/LTS/caConc" scale="1 mM" color="#000000"/>
         </Display>
         
         <Display id="ecab" title="PospischilEtAl2008: eca" xmin="0" xmax="1000" ymin="0" ymax="140" timeScale="1ms">
-            <Line id="eca" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IT_all/erev" scale="1 mV" color="#000000"/>
+            <Line id="eca" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/IT_all/erev" scale="1 mV" color="#000000"/>
         </Display>
         
         <Display id="rates" title="PospischilEtAl2008: channel variables" xmin="-100" xmax="1100" ymin="-.1" ymax="1.1" timeScale="1ms">
-            <Line id="Na m" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
-            <Line id="Na h" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
-            <Line id="Kd n" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
-            <Line id="IM p" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IM_all/IM/p/q" scale="1" color="#0000FF"/>
-            <Line id="IT s" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IT_all/IT/s/q" scale="1" color="#FF00FF"/>
-            <Line id="IT u" timeScale="1 ms" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IT_all/IT/u/q" scale="1" color="#00FFFF"/>
+            <Line id="Na m" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/Na_all/Na/m/q" scale="1" color="#000000"/>
+            <Line id="Na h" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/Na_all/Na/h/q" scale="1" color="#FF0000"/>
+            <Line id="Kd n" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/Kd_all/Kd/n/q" scale="1" color="#00FF00"/>
+            <Line id="IM p" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/IM_all/IM/p/q" scale="1" color="#0000FF"/>
+            <Line id="IT s" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/IT_all/IT/s/q" scale="1" color="#FF00FF"/>
+            <Line id="IT u" timeScale="1 ms" quantity="CG_LTS/0/LTS/biophys/membraneProperties/IT_all/IT/u/q" scale="1" color="#00FFFF"/>
         </Display>
 
-        <OutputFile id="CG_LTS_ModelDB_v_0_0_OF" fileName="LTS.dat">
-            <OutputColumn id="v" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/v"/>
+        <OutputFile id="CG_LTS_v_0_0_OF" fileName="LTS.dat">
+            <OutputColumn id="v" quantity="CG_LTS/0/LTS/v"/>
         </OutputFile>
         
         <OutputFile id="f_cai" fileName="LTS.cai.dat">
-            <OutputColumn id="cai" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/caConc"/>
+            <OutputColumn id="cai" quantity="CG_LTS/0/LTS/caConc"/>
         </OutputFile>
         
         <OutputFile id="f_eca" fileName="LTS.eca.dat">
-            <OutputColumn id="cai" quantity="CG_LTS_ModelDB/0/LTS_ModelDB/biophys/membraneProperties/IT_all/erev"/>
+            <OutputColumn id="cai" quantity="CG_LTS/0/LTS/biophys/membraneProperties/IT_all/erev"/>
         </OutputFile>
         
         
