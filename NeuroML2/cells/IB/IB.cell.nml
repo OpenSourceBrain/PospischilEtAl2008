@@ -6,6 +6,7 @@
     <include href="../../channels/Kd/Kd.channel.nml"/>  
     <include href="../../channels/IM/IM.channel.nml"/>  
     <include href="../../channels/IL/IL.channel.nml"/>  
+    <include href="../../channels/Ca/Ca.nml"/>  
     
     <cell id="IB">
         
