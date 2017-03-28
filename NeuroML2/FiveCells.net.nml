@@ -15,12 +15,18 @@
     <include href="cells/IB/IB.cell.nml"/>
     <include href="cells/IBR/IBR.cell.nml"/>
 
-    <pulseGenerator id="Input_1" delay="0.3s" duration="0.41s" amplitude="5.0E-10A"/>
+    <pulseGenerator id="Input_RS" delay="0.3s" duration="0.4s" amplitude="7.5E-10A"/>
+    
+    <pulseGenerator id="Input_FS" delay="0.3s" duration="0.41s" amplitude="5.0E-10A"/>
+    
+    <pulseGenerator id="Input_IB" delay="500ms" duration="2000ms" amplitude="1.5E-10A"/>
+    
+    <pulseGenerator id="Input_IBR" delay="500ms" duration="2000ms" amplitude="1.5E-10A"/>
+    
+    <pulseGenerator id="Input_LTS" delay="400ms" duration="400ms" amplitude="1.5E-10A"/>
 
     
     <network id="FiveCells" type="networkWithTemperature" temperature="36.0 degC">
-
-        
 
         <population id="CG_RS" component="RS" type="populationList" size="1">
            <annotation>
@@ -68,6 +74,25 @@
         </population>
 
 
+        <inputList id="iRS" component="Input_RS" population="CG_RS">
+            <input id="0" target="../CG_RS/0/RS" destination="synapses"/>
+        </inputList>
+
+        <inputList id="iFS" component="Input_FS" population="CG_FS">
+            <input id="0" target="../CG_FS/0/FS" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iIB" component="Input_IB" population="CG_IB">
+            <input id="0" target="../CG_IB/0/IB" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iIBR" component="Input_IBR" population="CG_IBR">
+            <input id="0" target="../CG_IBR/0/IBR" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iLTS" component="Input_LTS" population="CG_LTS">
+            <input id="0" target="../CG_LTS/0/LTS" destination="synapses"/>
+        </inputList>
 
     </network>
 

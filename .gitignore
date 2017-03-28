@@ -35,3 +35,6 @@ simulations
 *py.class
 *~
 *.DS_Store
+/NeuroML2/.ipynb_checkpoints
+/NeuroML2/*.mod
+/NeuroML2/*.hoc
