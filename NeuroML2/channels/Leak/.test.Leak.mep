@@ -3,10 +3,10 @@ system: Expected voltage times for Leak channel
 experiments:
   one:
     expected:
-      spike times: [333.56]
+      spike times: [333.57]
   two:
     expected:
-      spike times: [308.65]
+      spike times: [308.66]
   three:
     expected:
-      spike times: [302.14]
+      spike times: [302.15]

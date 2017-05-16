@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="CaPoolModel">
     
-    <decayingPoolConcentrationModelPosp id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" depth="1 um"/>
-    
-    <Dimension name="substancePerVolumeTime" l="-3" t="-1" n="1" />
+    <decayingPoolConcentrationModelPosp id="CaPoolModel" restingConc="2.4e-4 mM" decayConstant="5 ms" ion="ca" depth="1 um">
+        <notes>A custom made concentration model to use with Pospischil et al 2008</notes>
+    </decayingPoolConcentrationModelPosp>
     
     <ComponentType name="decayingPoolConcentrationModelPosp"
         extends="concentrationModel"
         description="Custom mechanism for Pospischil et al 2008">
         
+        <Child name="notes" type="notes"/>
         <Parameter name="restingConc" dimension="concentration"/>
         <Parameter name="decayConstant" dimension="time"/>
         <Parameter name="depth" dimension="length"/>

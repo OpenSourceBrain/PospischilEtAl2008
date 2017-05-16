@@ -11,15 +11,29 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">...</entry>
+<entry key="Description">Slow M-type K+ current for spike frequency adaptation
+            
+Comment from original mod file:
+M-current, responsible for the adaptation of firing rate and the afterhyperpolarization (AHP) of cortical pyramidal cells
+First-order model described by hodgkin-Hyxley like equations.
+K+ current, activated by depolarization, noninactivating.
+
+Model taken from Yamada, W.M., Koch, C. and Adams, P.R.  Multiple channels and calcium dynamics.  In: Methods in Neuronal Modeling, 
+edited by C. Koch and I. Segev, MIT press, 1989, p 97-134.
+    
+See also: McCormick, D.A., Wang, Z. and Huguenard, J. Neurotransmitter control of neocortical neuronal activity and excitability. 
+Cerebral Cortex 3: 387-398, 1993.
+
+Written by Alain Destexhe, Laval University, 1995
+        </entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
-<entry key="PSICS file requires compilation">false</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
+<entry key="PSICS file requires compilation">false</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="NEURON file requires compilation">true</entry>
 <entry key="Mechanism Type">Channel mechanism</entry>
-<entry key="PSICS mapping">ChannelML_v1.8.1_PSICS.xsl</entry>
 <entry key="ChannelML file">KChannel_HH.xml</entry>
+<entry key="PSICS mapping">ChannelML_v1.8.1_PSICS.xsl</entry>
 <entry key="GENESIS file requires compilation">false</entry>
 <entry key="Mechanism Name">Km_CML</entry>
 <entry key="Mechanism Model">Template based ChannelML file</entry>

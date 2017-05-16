@@ -7,14 +7,14 @@
     <include href="../../channels/IM/IM.channel.nml"/>
     <include href="../../channels/Leak/Leak.channel.nml"/>
     <include href="../../channels/Na/Na.channel.nml"/>
-    <include href="RS_ModelDB.cell.nml"/>
+    <include href="../../cells/RS/RS.cell.nml"/>
 
     <pulseGenerator id="Input_1" delay="0.2s" duration="490 ms" amplitude="0.84 nA"/>
 
     
     <network id="network_PospischilEtAl2008" type="networkWithTemperature" temperature="36.0 degC">
 
-        <population id="CG_RS_ModelDB" component="RS_ModelDB" type="populationList" size="1">
+        <population id="CG_RS" component="RS" type="populationList" size="1">
            <annotation>
                 <property tag="color" value="0.3203125 0.3828125 0.765625"/>
             </annotation>
@@ -23,8 +23,8 @@
             </instance>
         </population>
         
-        <inputList id="Input_1" component="Input_1" population="CG_RS_ModelDB">
-            <input id="0" target="../CG_RS_ModelDB/0/RS_ModelDB" destination="synapses"/>
+        <inputList id="Input_1" component="Input_1" population="CG_RS">
+            <input id="0" target="../CG_RS/0/RS" destination="synapses"/>
         </inputList>
         
     </network>

@@ -16,7 +16,7 @@ Cell Group: CG_IM_ModelDB contains 1 cells
     <include href="../../channels/IM/IM.channel.nml"/>
     <include href="../../channels/Leak/Leak.channel.nml"/>
     <include href="../../channels/Na/Na.channel.nml"/>
-    <include href="IM_ModelDB.cell.nml"/>
+    <include href="IM.cell.nml"/>
 
     <pulseGenerator id="Input_1" delay="0.3s" duration="0.4s" amplitude="7.5E-10A"/>
 

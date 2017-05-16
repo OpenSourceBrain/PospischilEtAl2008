@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="FiveCells">
+
+    <include href="channels/Kd/Kd.channel.nml"/>
+    <include href="channels/IM/IM.channel.nml"/>
+    <include href="channels/Leak/Leak.channel.nml"/>
+    <include href="channels/Na/Na.channel.nml"/>
+    <include href="channels/Ca/Ca.nml"/>
+    <include href="channels/IL/IL.channel.nml"/>
+    <include href="channels/IT/IT.channel.nml"/>
+    
+    <include href="cells/RS/RS.cell.nml"/>
+    <include href="cells/FS/FS.cell.nml"/>
+    <include href="cells/LTS/LTS.cell.nml"/>
+    <include href="cells/IB/IB.cell.nml"/>
+    <include href="cells/IBR/IBR.cell.nml"/>
+
+    <pulseGenerator id="Input_RS" delay="0.3s" duration="0.4s" amplitude="7.5E-10A"/>
+    
+    <pulseGenerator id="Input_FS" delay="0.3s" duration="0.41s" amplitude="5.0E-10A"/>
+    
+    <pulseGenerator id="Input_IB" delay="500ms" duration="2000ms" amplitude="1.5E-10A"/>
+    
+    <pulseGenerator id="Input_IBR" delay="500ms" duration="2000ms" amplitude="1.5E-10A"/>
+    
+    <pulseGenerator id="Input_LTS" delay="400ms" duration="400ms" amplitude="1.5E-10A"/>
+
+    
+    <network id="FiveCells" type="networkWithTemperature" temperature="36.0 degC">
+
+        <population id="CG_RS" component="RS" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="1 0 0"/>
+            </annotation>
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="CG_FS" component="FS" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0 1 0"/>
+            </annotation>
+            <instance id="0">
+                <location x="200" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="CG_LTS" component="LTS" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0 0 1"/>
+            </annotation>
+            <instance id="0">
+                <location x="400" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="CG_IB" component="IB" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="1 0 1"/>
+            </annotation>
+            <instance id="0">
+                <location x="600" y="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="CG_IBR" component="IBR" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="1 1 0"/>
+            </annotation>
+            <instance id="0">
+                <location x="800" y="0" z="0"/>
+            </instance>
+        </population>
+
+
+        <inputList id="iRS" component="Input_RS" population="CG_RS">
+            <input id="0" target="../CG_RS/0/RS" destination="synapses"/>
+        </inputList>
+
+        <inputList id="iFS" component="Input_FS" population="CG_FS">
+            <input id="0" target="../CG_FS/0/FS" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iIB" component="Input_IB" population="CG_IB">
+            <input id="0" target="../CG_IB/0/IB" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iIBR" component="Input_IBR" population="CG_IBR">
+            <input id="0" target="../CG_IBR/0/IBR" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="iLTS" component="Input_LTS" population="CG_LTS">
+            <input id="0" target="../CG_LTS/0/LTS" destination="synapses"/>
+        </inputList>
+
+    </network>
+
+</neuroml>

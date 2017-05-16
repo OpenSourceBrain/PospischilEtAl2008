@@ -1,10 +1,11 @@
+
 ## Minimal Hodgkin–Huxley type models for four common classes of cortical and thalamic neurons
 
 [![Build Status](https://travis-ci.org/OpenSourceBrain/PospischilEtAl2008.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/PospischilEtAl2008)
 
 #### Overview of the Model
 
-[Pospischil, et. al. (2008)](http://link.springer.com/article/10.1007/s00422-008-0263-8) describes conductance-based ([Hodgin-Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model)) models of four different classes of [cortical](https://en.wikipedia.org/wiki/Cerebral_cortex) and [thalamic](https://en.wikipedia.org/wiki/Thalamus) neurons. The classes represented are:
+[Pospischil et. al. 2008](http://link.springer.com/article/10.1007/s00422-008-0263-8) describes conductance-based ([Hodgin-Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model)) models of four different classes of [cortical](https://en.wikipedia.org/wiki/Cerebral_cortex) and [thalamic](https://en.wikipedia.org/wiki/Thalamus) neurons. The classes represented are:
 
 - Regular Spiking (RS) cells
 - Fast Spiking (FS) cells
@@ -21,7 +22,7 @@ All cell models are composed of [ion channel](https://en.wikipedia.org/wiki/Ion_
 
 Leak and input current models are present in all cells as well.
 
-These models demonstrate that a wide variety of spiking behaviors can be implemented using a small number of ion channels. 
+These models demonstrate that a wide variety of spiking behaviors can be implemented using just a few types of ion channels. 
 
 **Original Reference:**
 
@@ -57,6 +58,13 @@ Figure produced with NEURON_ORIG LTS Cell with gcabar_it = 0.0012 and input curr
 
 ### Model Versions
 
+The original version of this model as uploaded to ModelDB can be found in directory [NEURON_ORIG](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/NEURON_ORIG). 
+An updated version of these scripts (in directory [NEURON_MODIFIED](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/NEURON_MODIFIED); 
+[differences](https://github.com/OpenSourceBrain/PospischilEtAl2008/blob/master/NEURON_MODIFIED/diffs_to_original.txt)) has been used for the conversion to NeuroML 2.
+
+A [neuroConstruct](http://www.neuroconstruct.org/) project [is included](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/neuroConstruct) which uses some of the ion channels to create cell models, but the 
+[NeuroML2 version](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/NeuroML2) of the model is much more complete.
+
 #### Why Convert to NeuroML?
 
 The original models were implemented for the [NEURON simulator](https://www.neuron.yale.edu/neuron/). We have converted the model to NeuroML. The modular, XML nature of NeuroML allows to quickly re-use this model in network simulations and our tools allow [automated conversion to other supported simulator formats](https://neuroml.org/mappings).
@@ -78,7 +86,7 @@ The Regular Spiking (RS) cell was also implemented in [XPP simulator](http://www
 4. Extract the model files to a folder.
 5. For Figure 1: Change to NeuroML2/Figure1 folder. Type `jnml LEMS_Figure1C.xml` or `pynml LEMS_Figure1C.xml`.
 6. For RS (and other cells): Change to NeuroML2/cells/RS (or other) folder. Type `jnml LEMS_RS.xml` or `pynml LEMS_RS.xml`. 
-7. Windows with the plotted figures should show up as can be seen below.
+7. Windows with the plotted figures should show up as can be seen above.
 
 
 ### Issues

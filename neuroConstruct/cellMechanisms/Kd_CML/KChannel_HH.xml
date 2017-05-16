@@ -5,18 +5,28 @@
     xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.0/Level2/ChannelML_v1.8.0.xsd"
     units="Physiological Units">
 
-    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+    <meta:notes>NeuroML file containing a single Channel description</meta:notes>
 
     <channel_type name="Kd_CML">
 
-        <status value="in_progress">
-            <meta:comment>...</meta:comment>
+        <status value="stable">
+            <meta:comment>Validated against mod file in https://github.com/OpenSourceBrain/PospischilEtAl2008/blob/master/NEURON_MODIFIED</meta:comment>
             <meta:contributor>
                 <meta:name>Padraig Gleeson</meta:name>
             </meta:contributor>
         </status>
         
-        <meta:notes>...</meta:notes>
+        <meta:notes>Delayed rectifier K+ current based on Traub and Miles 1991.
+            
+Comment from original mod file: Hippocampal HH channels
+Fast Na+ and K+ currents responsible for action potentials
+Iterative equations
+
+Equations modified by Traub, for Hippocampal Pyramidal cells, in: Traub and Miles, Neuronal Networks of the Hippocampus, Cambridge, 1991
+
+- range variable vtraub adjust threshold
+- Written by Alain Destexhe, Salk Institute, Aug 1992
+- Modified Oct 96 for compatibility with Windows: trap low values of arguments</meta:notes>
         
         <meta:authorList>
             <meta:modelTranslator>
@@ -27,8 +37,8 @@
         </meta:authorList>
         
         <meta:publication>
-            <meta:fullTitle>....</meta:fullTitle>
-            <meta:pubmedRef>...</meta:pubmedRef>
+            <meta:fullTitle>Minimal Hodgkin-Huxley type models for different classes of cortical and thalamic neurons</meta:fullTitle>
+            <meta:pubmedRef>19011929</meta:pubmedRef>
         </meta:publication>
 
         <meta:neuronDBref>

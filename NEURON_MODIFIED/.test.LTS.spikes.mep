@@ -3,7 +3,7 @@ system: Expected spike times for LTS cell
 experiments:
   spikes:
     expected:
-      spike times: [431.422, 445.188, 517.236, 720.421]
+      spike times: [431.423, 445.189, 517.237, 720.422]
   ca spikes:
     expected:
-      spike times: [430.314, 443.501]
+      spike times: [430.315, 443.502]
