@@ -15,7 +15,7 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.00299
+        tolerance: 0.00298509194045
   ca spikes:
     observables:
       spike times:
@@ -26,4 +26,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0.0009
-        tolerance: 0.000433
+        tolerance: 0.000432918002624
