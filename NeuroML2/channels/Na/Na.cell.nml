@@ -33,7 +33,7 @@
 
             <membraneProperties>
                 
-                <channelDensity condDensity="50.0 mS_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>
+                <channelDensityVShift condDensity="50.0 mS_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV" vShift="0mV"/>
 
                 <spikeThresh value="0 mV"/>
 

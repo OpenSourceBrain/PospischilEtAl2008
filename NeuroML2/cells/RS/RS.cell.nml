@@ -48,11 +48,11 @@
                 
                 <channelDensity condDensity="0.1 mS_per_cm2" id="LeakConductance_all" ionChannel="LeakConductance" erev="-70.0 mV" ion="non_specific"/>
                 
-                <channelDensity condDensity="50.0 mS_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV"/>
-                
                 <channelDensity condDensity="5.0 mS_per_cm2" id="Kd_all" ionChannel="Kd" ion="k" erev="-100.0 mV"/>
                 
                 <channelDensity condDensity="0.07 mS_per_cm2" id="IM_all" ionChannel="IM" ion="k" erev="-100.0 mV"/>
+                
+                <channelDensityVShift condDensity="50.0 mS_per_cm2" id="Na_all" ionChannel="Na" ion="na" erev="50.0 mV" vShift="0mV"/>
 
                 <spikeThresh value="0 mV"/>
 
