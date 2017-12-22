@@ -37,6 +37,14 @@
         <OutputFile id="CG_FS_v_0_0_OF" fileName="FS.dat">
             <OutputColumn id="v" quantity="CG_FS/0/FS/v"/>
         </OutputFile>
+        
+        <OutputFile id="CG_FS_rates" fileName="FS_rates.dat">
+            <OutputColumn id="m" quantity="CG_FS/0/FS/biophys/membraneProperties/Na_all/Na/m/q"/>
+            <OutputColumn id="h" quantity="CG_FS/0/FS/biophys/membraneProperties/Na_all/Na/h/q"/>
+            <OutputColumn id="n" quantity="CG_FS/0/FS/biophys/membraneProperties/Kd_all/Kd/n/q"/>
+        </OutputFile>
+        
+        
     </Component>
     
     
