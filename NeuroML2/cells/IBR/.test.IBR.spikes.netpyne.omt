@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation 
+# Still in development, subject to change without notice!!
+
+target: "LEMS_IBR.xml"
+engine: jNeuroML_NetPyNE
+mep: ../../../NEURON_MODIFIED/.test.IBR.spikes.mep
+experiments:
+  spikes:
+    observables:
+      spike times:
+        file: 
+          path: IBR.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0.00141001898627

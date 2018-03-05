@@ -42,3 +42,7 @@ simulations
 *_moose.py
 *_main.json
 *input.json
+/NeuroML2/cells/IB/LEMS_IB_netpyne.py
+/NeuroML2/cells/IBR/LEMS_IBR_netpyne.py
+/NeuroML2/cells/RS/LEMS_RS_netpyne.py
+/NeuroML2/channels/IL/LEMS_IL.nernstCa_netpyne.py
