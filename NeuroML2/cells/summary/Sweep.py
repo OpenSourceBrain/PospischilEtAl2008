@@ -11,6 +11,7 @@ from GenerateExamples import colors
 
 if __name__ == '__main__':
 
+    heatmap_lims=[-110,-20]
 
     if '-all' in sys.argv:
         
@@ -21,7 +22,7 @@ if __name__ == '__main__':
         fixed = {'dt':0.001, 'duration':700}
 
 
-        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,50)]}
+        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,1)]}
         #vary = {'stim_amp':['%spA'%(i/10.0) for i in xrange(-10,20,5)]}
         #vary = {'stim_amp':['-100pA','0pA','100pA','200pA','300pA','400pA']}
         
@@ -44,6 +45,7 @@ if __name__ == '__main__':
                                         save_plot_all_to='firing_rates_%s.png'%type,
                                         heatmap_all=True,
                                         save_heatmap_to='heatmap_%s.png'%type,
+                                        heatmap_lims=heatmap_lims,
                                         plot_all=True, 
                                         show_plot_already=False)
 
@@ -91,7 +93,7 @@ if __name__ == '__main__':
         optimal_stim = {'olm':100,'sca':100,'pvbasket':350,'ivy':220,'ngf':220,'bistratified':350,'cck':180,'axoaxonic':220,'poolosyn':280}
         #optimal_stim = {'olm':100,'sca':100}
         
-	optimal_stim = {'RS':'800', 'FS':'600','LTS':300, 'IB':400, 'IBR':400}
+        optimal_stim = {'RS':'800', 'FS':'600','LTS':300, 'IB':400, 'IBR':400}
 
         vary = {'dt':[0.1,0.05,0.025,0.01,0.005,0.0025,0.001,0.0005,0.00025,0.0001]}
         vary = {'dt':[0.1,0.05,0.025,0.01,0.005,0.0025,0.001]}
@@ -117,6 +119,7 @@ if __name__ == '__main__':
                                         save_plot_all_to='dt_traces_%s.png'%type,
                                         heatmap_all=True,
                                         save_heatmap_to='heatmap_dt_%s.png'%type,
+                                        heatmap_lims=heatmap_lims,
                                         plot_all=True, 
                                         show_plot_already=False)
 
@@ -147,11 +150,8 @@ if __name__ == '__main__':
         
         #vary = {'number_per_cell':[i for i in xrange(0,250,10)]}
         #vary = {'stim_amp':['1pA','1.5pA','2pA']}
-        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,50)]}
+        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,20)]}
 
-        type = 'bistratified'
-        #type = 'ivy'
-        type = 'ngf'
         type = 'RS'
         type = 'FS'
         #type='poolosyn'
@@ -165,11 +165,12 @@ if __name__ == '__main__':
             pass
 
         ps = ParameterSweep(nmllr, vary, fixed,
-                            num_parallel_runs=7,
+                            num_parallel_runs=16,
                                   plot_all=True, 
                                   save_plot_all_to='firing_rates_%s.png'%type,
                                   heatmap_all=True,
                                   save_heatmap_to='heatmap_%s.png'%type,
+                                  heatmap_lims=heatmap_lims,
                                   show_plot_already=False)
 
         report = ps.run()

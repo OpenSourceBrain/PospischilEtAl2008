@@ -46,3 +46,7 @@ simulations
 /NeuroML2/cells/IBR/LEMS_IBR_netpyne.py
 /NeuroML2/cells/RS/LEMS_RS_netpyne.py
 /NeuroML2/channels/IL/LEMS_IL.nernstCa_netpyne.py
+/NeuroML2/cells/summary/ParamSweep*
+/NeuroML2/cells/summary/IClamp_RS.net.nml
+/NeuroML2/cells/summary/LEMS_Sim_IClamp_RS.xml
+/NeuroML2/cells/summary/report.Sim_IClamp_RS.txt

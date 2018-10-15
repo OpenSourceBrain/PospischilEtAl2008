@@ -54,8 +54,7 @@ if __name__ == "__main__":
     
     if '-all' in sys.argv:
         for cell in colors:
-            if cell!='ec' and cell !='ca3':
-                generate(cell, 700, config="IClamp")
+            generate(cell, 700, config="IClamp")
             
         
     else:
