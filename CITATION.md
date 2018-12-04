@@ -10,7 +10,7 @@ If you use this model in your research, we respectfully ask you to cite:
    
 **The ModelDB entry for this model**
 
-    - https://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=123623
+  - https://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=123623
 
 **The latest release of this Open Source Brain repository**
 
