@@ -9,7 +9,7 @@ An updated version of these scripts (in directory [NEURON_MODIFIED](https://gith
 A [neuroConstruct](http://www.neuroconstruct.org/) project [is included](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/neuroConstruct) which uses some of the ion channels to create cell models, but the 
 [NeuroML2 version](https://github.com/OpenSourceBrain/PospischilEtAl2008/tree/master/NeuroML2) of the model is much more complete.
 
-[![Build Status](https://travis-ci.org/OpenSourceBrain/PospischilEtAl2008.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/PospischilEtAl2008)
+[![Continuous build using OMV](https://github.com/OpenSourceBrain/PospischilEtAl2008/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/PospischilEtAl2008/actions/workflows/omv-ci.yml)
 
 ### Reusing this model
 
