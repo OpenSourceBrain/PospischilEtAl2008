@@ -31,10 +31,10 @@ jobs:
         pip install scipy sympy matplotlib cython pandas tables
         
     - name: Install latest development pyNeuroML 
-         
+      run: |
+         # Required for Moose reader, remove when latest merged to master in Moose and pyNeuroML
          pip install git+https://github.com/NeuroML/pyNeuroML.git@development 
          pip list
-         # Required for Moose reader, remove when latest merged to master in Moose and pyNeuroML
         
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
