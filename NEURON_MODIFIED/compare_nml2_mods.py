@@ -61,6 +61,7 @@ for chan in chans:
             
             
     pylab.legend()
+    pylab.savefig("TimeCourse_%s.png"%channel_id, bbox_inches="tight", dpi=300)
     
     
     fig = pylab.figure()
@@ -96,5 +97,7 @@ for chan in chans:
             pylab.plot(vs, infs, '--x', label="Mod %s %s inf"%(channel_id, gate))
             
     pylab.legend()
+    pylab.savefig("SteadyState_%s.png"%channel_id, bbox_inches="tight", dpi=300)
+
     
 pylab.show()
