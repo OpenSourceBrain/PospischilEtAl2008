@@ -1,16 +1,15 @@
 Channel information
 ===================
-    
+
 <p style="font-family:arial">Channel information at: T = 36.0 degC, E_rev = 0 mV, [Ca2+] = 0.00043 mM</p>
 
-<table>
-    <tr>
-<td width="120px">
-            <sup><b>Na</b><br/>
-            <a href="../Na/Na.channel.nml">Na/Na.channel.nml</a><br/>
-            <b>Ion: na</b><br/>
-            <i>g = gmax * m<sup>3</sup> * h </i><br/>
-            Na+ current based on Traub and Miles 1991.
+
+<h2>Na</h2>
+
+Ion: <b>na</b> |
+Conductance expression: <b>g = gmax * m<sup>3</sup> * h </b> |
+NeuroML2 file: <a href="../Na/Na.channel.nml">Na/Na.channel.nml</a></div>
+<details><summary>Notes</summary>Na+ current based on Traub and Miles 1991.
             
 Comment from original mod file: 
 Hippocampal HH channels
@@ -21,22 +20,19 @@ Equations modified by Traub, for Hippocampal Pyramidal cells, in: Traub and Mile
 
 - range variable vtraub adjust threshold
 - Written by Alain Destexhe, Salk Institute, Aug 1992
-- Modified Oct 96 for compatibility with Windows: trap low values of arguments</sup>
-</td>
-<td>
-<a href="Na.inf.png"><img alt="Na steady state" src="Na.inf.png" height="220"/></a>
-</td>
-<td>
-<a href="Na.tau.png"><img alt="Na time course" src="Na.tau.png" height="220"/></a>
-</td>
-</tr>
-    <tr>
-<td width="120px">
-            <sup><b>IM</b><br/>
-            <a href="../IM/IM.channel.nml">IM/IM.channel.nml</a><br/>
-            <b>Ion: k</b><br/>
-            <i>g = gmax * p </i><br/>
-            Slow M-type K+ current for spike frequency adaptation
+- Modified Oct 96 for compatibility with Windows: trap low values of arguments</details>
+
+<div><a href="Na.inf.png"><img alt="Na steady state" src="Na.inf.png" width="350" style="padding:10px 35px 10px 0px"/></a>
+<a href="Na.tau.png"><img alt="Na time course" src="Na.tau.png" width="350" style="padding:10px 10px 10px 0px"/></a>
+</div>
+</div>
+
+<h2>IM</h2>
+
+Ion: <b>k</b> |
+Conductance expression: <b>g = gmax * p </b> |
+NeuroML2 file: <a href="../IM/IM.channel.nml">IM/IM.channel.nml</a></div>
+<details><summary>Notes</summary>Slow M-type K+ current for spike frequency adaptation
             
 Comment from original mod file:
 M-current, responsible for the adaptation of firing rate and the afterhyperpolarization (AHP) of cortical pyramidal cells
@@ -50,22 +46,19 @@ See also: McCormick, D.A., Wang, Z. and Huguenard, J. Neurotransmitter control o
 Cerebral Cortex 3: 387-398, 1993.
 
 Written by Alain Destexhe, Laval University, 1995
-        </sup>
-</td>
-<td>
-<a href="IM.inf.png"><img alt="IM steady state" src="IM.inf.png" height="220"/></a>
-</td>
-<td>
-<a href="IM.tau.png"><img alt="IM time course" src="IM.tau.png" height="220"/></a>
-</td>
-</tr>
-    <tr>
-<td width="120px">
-            <sup><b>Kd</b><br/>
-            <a href="../Kd/Kd.channel.nml">Kd/Kd.channel.nml</a><br/>
-            <b>Ion: k</b><br/>
-            <i>g = gmax * n<sup>4</sup> </i><br/>
-            Delayed rectifier K+ current based on Traub and Miles 1991.
+        </details>
+
+<div><a href="IM.inf.png"><img alt="IM steady state" src="IM.inf.png" width="350" style="padding:10px 35px 10px 0px"/></a>
+<a href="IM.tau.png"><img alt="IM time course" src="IM.tau.png" width="350" style="padding:10px 10px 10px 0px"/></a>
+</div>
+</div>
+
+<h2>Kd</h2>
+
+Ion: <b>k</b> |
+Conductance expression: <b>g = gmax * n<sup>4</sup> </b> |
+NeuroML2 file: <a href="../Kd/Kd.channel.nml">Kd/Kd.channel.nml</a></div>
+<details><summary>Notes</summary>Delayed rectifier K+ current based on Traub and Miles 1991.
             
 Comment from original mod file: Hippocampal HH channels
 Fast Na+ and K+ currents responsible for action potentials
@@ -75,22 +68,19 @@ Equations modified by Traub, for Hippocampal Pyramidal cells, in: Traub and Mile
 
 - range variable vtraub adjust threshold
 - Written by Alain Destexhe, Salk Institute, Aug 1992
-- Modified Oct 96 for compatibility with Windows: trap low values of arguments</sup>
-</td>
-<td>
-<a href="Kd.inf.png"><img alt="Kd steady state" src="Kd.inf.png" height="220"/></a>
-</td>
-<td>
-<a href="Kd.tau.png"><img alt="Kd time course" src="Kd.tau.png" height="220"/></a>
-</td>
-</tr>
-    <tr>
-<td width="120px">
-            <sup><b>IT</b><br/>
-            <a href="../IT/IT.channel.nml">IT/IT.channel.nml</a><br/>
-            <b>Ion: ca</b><br/>
-            <i>g = gmax * s<sup>2</sup> * u </i><br/>
-            Low threshold calcium current
+- Modified Oct 96 for compatibility with Windows: trap low values of arguments</details>
+
+<div><a href="Kd.inf.png"><img alt="Kd steady state" src="Kd.inf.png" width="350" style="padding:10px 35px 10px 0px"/></a>
+<a href="Kd.tau.png"><img alt="Kd time course" src="Kd.tau.png" width="350" style="padding:10px 10px 10px 0px"/></a>
+</div>
+</div>
+
+<h2>IT</h2>
+
+Ion: <b>ca</b> |
+Conductance expression: <b>g = gmax * s<sup>2</sup> * u </b> |
+NeuroML2 file: <a href="../IT/IT.channel.nml">IT/IT.channel.nml</a></div>
+<details><summary>Notes</summary>Low threshold calcium current
             
 Comment from original mod file:
 Ca++ current responsible for low threshold spikes (LTS)
@@ -109,22 +99,19 @@ Features:
 	- shift for screening charge, q10 of inactivation of 3
 
 
-Written by Alain Destexhe, Salk Institute, 1993; modified 1995</sup>
-</td>
-<td>
-<a href="IT.inf.png"><img alt="IT steady state" src="IT.inf.png" height="220"/></a>
-</td>
-<td>
-<a href="IT.tau.png"><img alt="IT time course" src="IT.tau.png" height="220"/></a>
-</td>
-</tr>
-    <tr>
-<td width="120px">
-            <sup><b>IL</b><br/>
-            <a href="../IL/IL.channel.nml">IL/IL.channel.nml</a><br/>
-            <b>Ion: ca</b><br/>
-            <i>g = gmax * q<sup>2</sup> * r </i><br/>
-            High threshold calcium current
+Written by Alain Destexhe, Salk Institute, 1993; modified 1995</details>
+
+<div><a href="IT.inf.png"><img alt="IT steady state" src="IT.inf.png" width="350" style="padding:10px 35px 10px 0px"/></a>
+<a href="IT.tau.png"><img alt="IT time course" src="IT.tau.png" width="350" style="padding:10px 10px 10px 0px"/></a>
+</div>
+</div>
+
+<h2>IL</h2>
+
+Ion: <b>ca</b> |
+Conductance expression: <b>g = gmax * q<sup>2</sup> * r </b> |
+NeuroML2 file: <a href="../IL/IL.channel.nml">IL/IL.channel.nml</a></div>
+<details><summary>Notes</summary>High threshold calcium current
             
 Comment from original mod file:
 
@@ -170,14 +157,9 @@ Comment from original mod file:
    - no temperature dependence included (rates correspond to 36 degC)
 
 
-   Alain Destexhe, Laval University, 1996</sup>
-</td>
-<td>
-<a href="IL.inf.png"><img alt="IL steady state" src="IL.inf.png" height="220"/></a>
-</td>
-<td>
-<a href="IL.tau.png"><img alt="IL time course" src="IL.tau.png" height="220"/></a>
-</td>
-</tr>
-</table>
+   Alain Destexhe, Laval University, 1996</details>
 
+<div><a href="IL.inf.png"><img alt="IL steady state" src="IL.inf.png" width="350" style="padding:10px 35px 10px 0px"/></a>
+<a href="IL.tau.png"><img alt="IL time course" src="IL.tau.png" width="350" style="padding:10px 10px 10px 0px"/></a>
+</div>
+</div>
