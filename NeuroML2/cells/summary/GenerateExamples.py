@@ -23,7 +23,7 @@ def generate(cell, duration, config='IClamp'):
         parameters['stim_delay'] = '100ms'
         parameters['stim_dur'] = '500ms'
         input_source = InputSource(id='iclamp_0', 
-                                   neuroml2_input='PulseGenerator', 
+                                   neuroml2_input='pulseGenerator', 
                                    parameters={'amplitude':'stim_amp', 'delay':'stim_delay', 'duration':'stim_dur'})
       
         
@@ -48,20 +48,20 @@ def generate(cell, duration, config='IClamp'):
                      color_for_default_population=colors[cell],
                      input_for_default_population=input_source)
                      
-    sim.recordVariables={'biophys/membraneProperties/Na_all/Na/m/q':{'all':'*'},
+    sim.record_variables={'biophys/membraneProperties/Na_all/Na/m/q':{'all':'*'},
                          'biophys/membraneProperties/Na_all/Na/h/q':{'all':'*'},
                          'biophys/membraneProperties/Kd_all/Kd/n/q':{'all':'*'}}
     
     if cell != 'FS':
-        sim.recordVariables['biophys/membraneProperties/IM_all/IM/p/q']={'all':'*'}
+        sim.record_variables['biophys/membraneProperties/IM_all/IM/p/q']={'all':'*'}
         
     if cell == 'IB' or cell == 'IBR':
-        sim.recordVariables['biophys/membraneProperties/IL_all/IL/q/q']={'all':'*'}
-        sim.recordVariables['biophys/membraneProperties/IL_all/IL/r/q']={'all':'*'}
+        sim.record_variables['biophys/membraneProperties/IL_all/IL/q/q']={'all':'*'}
+        sim.record_variables['biophys/membraneProperties/IL_all/IL/r/q']={'all':'*'}
         
     if cell == 'LTS':
-        sim.recordVariables['biophys/membraneProperties/IT_all/IT/s/q']={'all':'*'}
-        sim.recordVariables['biophys/membraneProperties/IT_all/IT/u/q']={'all':'*'}
+        sim.record_variables['biophys/membraneProperties/IT_all/IT/s/q']={'all':'*'}
+        sim.record_variables['biophys/membraneProperties/IT_all/IT/u/q']={'all':'*'}
         
     sim.to_json_file()
 
