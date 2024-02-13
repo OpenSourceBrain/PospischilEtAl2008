@@ -22,8 +22,8 @@ if __name__ == '__main__':
         fixed = {'dt':0.001, 'duration':700}
 
 
-        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,1)]}
-        #vary = {'stim_amp':['%spA'%(i/10.0) for i in xrange(-10,20,5)]}
+        vary = {'stim_amp':['%spA'%(i) for i in range(-100,1000,1)]}
+        #vary = {'stim_amp':['%spA'%(i/10.0) for i in range(-10,20,5)]}
         #vary = {'stim_amp':['-100pA','0pA','100pA','200pA','300pA','400pA']}
         
         cells = colors.keys()
@@ -143,14 +143,14 @@ if __name__ == '__main__':
         quick = False
         #quick=True
 
-        vary = {'stim_amp':['%spA'%(i/10.0) for i in xrange(-10,20,2)]}
+        vary = {'stim_amp':['%spA'%(i/10.0) for i in range(-10,20,2)]}
         vary = {'dt':[0.1,0.05,0.025,0.01,0.005,0.0025,0.001,0.0005,0.00025,0.0001]}
         vary = {'dt':[0.1,0.05,0.025,0.01,0.005,0.0025,0.001]}
         vary = {'dt':[0.1,0.05,0.025,0.01,0.005]}
         
-        #vary = {'number_per_cell':[i for i in xrange(0,250,10)]}
+        #vary = {'number_per_cell':[i for i in range(0,250,10)]}
         #vary = {'stim_amp':['1pA','1.5pA','2pA']}
-        vary = {'stim_amp':['%spA'%(i) for i in xrange(-100,1000,20)]}
+        vary = {'stim_amp':['%spA'%(i) for i in range(-100,1000,20)]}
 
         type = 'RS'
         type = 'FS'
