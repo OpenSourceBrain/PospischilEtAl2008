@@ -16,6 +16,11 @@ jobs:
       matrix:
         python-version: [ "3.10", "3.12" ]
         engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_validate, NEURON, jNeuroML_Moose, "jNeuroML_Moose:4.0.0.dev20240411" ]
+        exclude:
+          - python-version: "3.12"
+            engine: jNeuroML_MOOSE  # MOOSE not yet working on py 3.12...
+          - python-version: "3.12"
+            engine: "jNeuroML_Moose:4.0.0.dev20240411"  # MOOSE not yet working on py 3.12...
 
     steps:
     - uses: actions/checkout@v4
